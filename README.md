@@ -3,6 +3,7 @@
 A retrieval-augmented question-answering system over the research literature on AR-assisted indoor navigation and emergency evacuation. Ask a question in plain English and get an answer grounded in the source papers, with page-level citations.
 
 **Live demo:** https://thesis-rag-assistant.streamlit.app/
+![Thesis RAG Assistant demo](demo.png)
 
 Built as a portfolio project alongside my M.Sc. thesis on AR-assisted indoor navigation. The public demo runs over the published, open-access papers that underpin that thesis, so the questions and answers stay in a domain I know well.
 
