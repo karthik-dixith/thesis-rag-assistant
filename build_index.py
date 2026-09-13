@@ -23,7 +23,7 @@ def build():
 
     INDEX_DIR.mkdir(exist_ok=True)
     faiss.write_index(index, str(INDEX_DIR / "thesis.index"))
-    with open(INDEX_DIR / "chunks.pk1", "wb") as f:
+    with open(INDEX_DIR / "chunks.pkl", "wb") as f:
         pickle.dump(chunks, f)
 
 
