@@ -1,0 +1,122 @@
+[
+  {
+    "id": "q01",
+    "question": "Which visual-inertial odometry system performed best in the benchmark, and what drift error did it achieve?",
+    "reference_answer": "Apple ARKit was the most stable, accurate and consistent of the four proprietary VIO systems tested (Apple ARKit, Google ARCore, Intel RealSense T265, Stereolabs ZED 2). Its relative pose error corresponded to a drift of about 0.02 m per second.",
+    "type": "factual",
+    "source": "Kim et al. 2022 - abstract, Section 6 Conclusions",
+    "answerable": true
+  },
+  {
+    "id": "q02",
+    "question": "How did the VIO benchmark measure positioning accuracy without an external motion capture system?",
+    "reference_answer": "The start and end points of every trajectory were made to coincide, and the authors measured the Final Drift Error (FDE), the end-point position error in metres. An ideal FDE is 0, and a large FDE indicates an inaccurate position estimate. Apple ARKit was additionally validated against ground-truth trajectories from an OptiTrack motion capture system, giving relative pose errors of 0.02-0.04 m/s.",
+    "type": "factual",
+    "source": "Kim et al. 2022 - Section 4 Experiments, Tables 1 and 2",
+    "answerable": true
+  },
+  {
+    "id": "q03",
+    "question": "What two positioning methods does the BIM and GIS based AR evacuation system combine?",
+    "reference_answer": "Wi-Fi RSSI fingerprinting, matched by K-nearest-neighbour against an offline database, supplies the user's initial position; pedestrian dead reckoning (PDR) using the smartphone accelerometer and orientation sensors then updates that position as the user walks. The exit route itself comes from a network extracted from the building's BIM model and solved with Dijkstra's algorithm in ArcGIS.",
+    "type": "factual",
+    "source": "Valizadeh et al. 2024 - Sections 3.1, 4.1.3, 4.1.4",
+    "answerable": true
+  },
+  {
+    "id": "q04",
+    "question": "How was the AR evacuation application evaluated, and what score did it achieve?",
+    "reference_answer": "It was evaluated with the System Usability Scale (SUS), a ten-question survey completed by 21 participants, 10 familiar with the building and 11 unfamiliar. The application scored 70.59, which is above the 68 average benchmark and falls within the 'good' category (62.7-72.5).",
+    "type": "factual",
+    "source": "Valizadeh et al. 2024 - Section 5 Evaluation",
+    "answerable": true
+  },
+  {
+    "id": "q05",
+    "question": "Why did the authors of the semantics-based connectivity graph define a new IFC relationship entity, and what is it called?",
+    "reference_answer": "IFC provides IfcRelSpaceBoundary for horizontal connectivity but specifies no relationship for vertical storey-to-storey connection, which blocks construction of a building-wide connectivity graph. The authors therefore defined a new relationship entity, IfcRelConnectsSpace, which links vertical connecting elements such as stairs, ramps, lifts and escalators to spaces on different storeys.",
+    "type": "factual",
+    "source": "Zhu et al. - Section 3.1.2 Vertical connectivity",
+    "answerable": true
+  },
+  {
+    "id": "q06",
+    "question": "How does the NavARNode application determine the user's starting position?",
+    "reference_answer": "Through marker nodes, each of which generates a QR code carrying a unique GUID, implemented with the open-source ZXing.Net library. When the user scans the printed QR code, their position is initialised to that marker's stored location, which avoids any dependence on BLE beacons, RFID or other additional hardware.",
+    "type": "factual",
+    "source": "Putra et al. 2025 - Section 2.2, component 4 (Marker-Based Position Initialization)",
+    "answerable": true
+  },
+  {
+    "id": "q07",
+    "question": "In the QR code map approach, what information does a device obtain by scanning a QR code, and how is it computed?",
+    "reference_answer": "Scanning yields the device's absolute position and orientation in the geodetic coordinate system. The QR code's four corner points are detected in the image using the ZBar library, and because the real-world coordinates of those corners are encoded in the code, the resulting 2D-3D point pairs are solved as a Perspective-n-Point problem (P3P, with an extra pair for validation) to recover camera pose. An extended Kalman filter then fuses this observation with pedestrian dead reckoning to eliminate accumulated error.",
+    "type": "factual",
+    "source": "Liu & Zhang 2023 - Sections 2.2 and 2.3",
+    "answerable": true
+  },
+  {
+    "id": "q08",
+    "question": "What did the systematic review conclude about AR's effect on wayfinding performance?",
+    "reference_answer": "The findings were mixed. Performance improvements from AR were consistently demonstrated in indoor environments but not in outdoor ones. The review also found that visual guidance tends to be more effective than auditory cues, that incorporating overview maps greatly improves AR's performance benefits, and that AR reduces cognitive load and improves cognitive map development compared with traditional guidance such as paper maps.",
+    "type": "conceptual",
+    "source": "Qiu et al. 2025 - abstract, Section 5 Discussion",
+    "answerable": true
+  },
+  {
+    "id": "q09",
+    "question": "What makes the proposed AR navigation system 'adaptive' compared with conventional approaches?",
+    "reference_answer": "Users build the map at runtime: they place and link navigation nodes on the floor surface detected by ARCore plane detection while the application is running, instead of relying on a pre-modelled 3D environment, manual NavMesh modelling or fixed predefined paths. The resulting map is saved as JSON holding node positions, node type, connectivity data and marker GUIDs, and can be reloaded, edited and shared without rebuilding the system, which suits layouts that change frequently or lack floor plans.",
+    "type": "conceptual",
+    "source": "Putra et al. 2025 - Sections 2.2 and 4.1",
+    "answerable": true
+  },
+  {
+    "id": "q10",
+    "question": "Why does the semantics-based approach avoid geometry processing, and what does that gain?",
+    "reference_answer": "Conventional geometry-based network construction, such as visibility graphs, straight skeletons and generalised Voronoi graphs, is computing-intensive and time-consuming, struggles with irregular floor layouts, and produces networks that lack semantics. Because IFC already encodes space connectivity as relationships, the connectivity graph can instead be built by querying IFC-Graph, completing in 6.72 seconds for the Institute model and 18.97 seconds for the modified Dorm model, and it supports object-to-object pathfinding such as space-to-space, space-to-exit and space-to-facility queries.",
+    "type": "conceptual",
+    "source": "Zhu et al. - Sections 1, 5.3, 6",
+    "answerable": true
+  },
+  {
+    "id": "q11",
+    "question": "Why is GPS unsuitable for indoor positioning?",
+    "reference_answer": "Satellite signals are heavily attenuated by building structure, reported as more than 1 dB per metre of structure, and indoor environments suffer multipath interference and a lack of direct line of sight to satellites, so accuracy degrades below what indoor guidance requires. Assisted GPS does not solve this because multipath remains a serious problem and signal strength stays too low in inner parts of buildings. Indoor systems therefore rely on alternatives such as Wi-Fi fingerprinting, Bluetooth, UWB, RFID, inertial navigation, SLAM or fiducial markers.",
+    "type": "conceptual",
+    "source": "Putra et al. 2025 Section 1; Valizadeh et al. 2024 Section 1; Liu & Zhang 2023 Section 1",
+    "answerable": true
+  },
+  {
+    "id": "q12",
+    "question": "What different techniques does the corpus describe for handling accumulated positioning drift?",
+    "reference_answer": "Several distinct strategies appear. In the QR code map work, QR codes at surveyed locations act as control points, and scanning one yields an absolute pose that is fused with pedestrian dead reckoning through an extended Kalman filter, eliminating accumulated error. In the BIM and GIS evacuation work, Wi-Fi fingerprinting provides the initial fix while a complementary filter combining accelerometer, magnetometer and gyroscope data estimates heading without drift, since integrating gyroscope noise would otherwise become drift. The VIO benchmark takes a different angle, quantifying how much drift each commercial system accumulates rather than correcting it, and notes that SLAM features such as loop closure were deliberately disabled for fair comparison.",
+    "type": "multi_hop",
+    "source": "Liu & Zhang 2023 Section 2.3; Valizadeh et al. 2024 Section 4.2.1; Kim et al. 2022 Section 4",
+    "answerable": true
+  },
+  {
+    "id": "q13",
+    "question": "How do the corpus papers use QR codes differently from one another?",
+    "reference_answer": "In the QR code map approach the codes are the backbone of the system: each is a surveyed control point and a node in an indoor road network, encoding ID, geodetic corner coordinates, floor, node type and adjacent edges, so they support both localization and path planning. In the NavARNode system QR codes play a narrower role as marker nodes carrying only a GUID, used to initialise the user's starting position or mark a destination, while the navigable path network itself comes from user-placed nodes and NavMesh.",
+    "type": "multi_hop",
+    "source": "Liu & Zhang 2023 Sections 2.1-2.2; Putra et al. 2025 Section 2.2 and Table 2",
+    "answerable": true
+  },
+  {
+    "id": "q14",
+    "question": "What is the retail price of a Microsoft HoloLens headset?",
+    "reference_answer": "Not answerable from the corpus. The systematic review names HoloLens as the most common AR headset brand but gives no price, and although the VIO benchmark does include a price table, it covers only ARKit, ARCore, the Intel T265 and the ZED 2. The system should state that it cannot find this rather than adapting a figure from that unrelated table.",
+    "type": "negative",
+    "source": null,
+    "answerable": false
+  },
+  {
+    "id": "q15",
+    "question": "What accuracy does the corpus report for AR navigation guidance while driving a car?",
+    "reference_answer": "Not answerable from the corpus. The systematic review explicitly excluded non-pedestrian navigation such as driving, and no paper reports AR guidance accuracy for drivers. The VIO benchmark does include a vehicular test, but it measures visual-inertial odometry drift on a moving vehicle, not AR navigation guidance accuracy, so the system should decline rather than conflate the two.",
+    "type": "negative",
+    "source": null,
+    "answerable": false
+  }
+]
