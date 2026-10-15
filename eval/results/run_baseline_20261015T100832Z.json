@@ -1,0 +1,166 @@
+{
+  "run": {
+    "tag": "baseline",
+    "timestamp_utc": "20261015T100832Z",
+    "gold_set": "eval\\gold_set.json",
+    "embed_model": "all-MiniLM-L6-v2",
+    "llm_model": "openai/gpt-oss-20b",
+    "top_k": 4,
+    "question_count": 3
+  },
+  "results": [
+    {
+      "id": "q01",
+      "question": "Which visual-inertial odometry system performed best in the benchmark, and what drift error did it achieve?",
+      "type": "factual",
+      "answerable": true,
+      "reference_answer": "Apple ARKit was the most stable, accurate and consistent of the four proprietary VIO systems tested (Apple ARKit, Google ARCore, Intel RealSense T265, Stereolabs ZED 2). Its relative pose error corresponded to a drift of about 0.02 m per second.",
+      "source_hint": "Kim et al. 2022 - abstract, Section 6 Conclusions",
+      "retrieved_chunks": [
+        {
+          "text": "VIO systems (Apple ARKit, Google ARCore, Intel RealSense T265, and Stereolabs ZED 2) through\na series of both indoor and outdoor experiments in which we showed their positioning stability,\nconsistency, and accuracy. After evaluating four popular VIO sensors in challenging real-world\nindoor and outdoor scenarios, Apple ARKit showed the most stable and high accuracy/consistency,\nand the relative pose error was a drift error of about 0.02 m per second. We present our complete\nresults as a benchmark comparison for the research community.\nKeywords: visual navigation; visual–inertial odometry; Apple ARKit; Google ARCore; VIO\n1. Introduction\nVisual–inertial odometry (VIO) is the process of determining the position and ori-\nentation of a camera and inertial measurement unit (IMU) rig in 3D space by analyzing\nthe associated camera images and IMU data from the visual–inertial sensors. It is one\nof the fundamental building blocks for 6-DoF ego-motion estimation in a variety of do-",
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 1
+        },
+        {
+          "text": "Citation: Kim, P .; Kim, J.; Song, M.;\nLee, Y.; Jung, M.; Kim, H.-G.\nA Benchmark Comparison of\nFour Off-the-Shelf Proprietary\nVisual–Inertial Odometry Systems.\nSensors 2022, 22, 9873. https://\ndoi.org/10.3390/s22249873\nAcademic Editor: Petros Daras\nReceived: 20 October 2022\nAccepted: 4 December 2022\nPublished: 15 December 2022\nPublisher’s Note:MDPI stays neutral\nwith regard to jurisdictional claims in\npublished maps and institutional afﬁl-\niations.\nCopyright: © 2022 by the authors.\nLicensee MDPI, Basel, Switzerland.\nThis article is an open access article\ndistributed under the terms and\nconditions of the Creative Commons\nAttribution (CC BY) license (https://\ncreativecommons.org/licenses/by/\n4.0/).\nsensors\nArticle\nA Benchmark Comparison of Four Off-the-Shelf Proprietary\nVisual–Inertial Odometry Systems\nPyojin Kim 1,†, Jungha Kim 1,†, Minkyeong Song 1, Yeoeun Lee 1, Moonkyeong Jung 1 and Hyeong-Geun Kim 2,*\n1 Department of Mechanical Systems Engineering, Sookmyung Women’s University,",
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 1
+        },
+        {
+          "text": "quadrotors. IEEE Robot. Autom. Lett. 2018, 3, 1801–1807. [CrossRef]\n4. Qiu, X.; Zhang, H.; Fu, W.; Zhao, C.; Jin, Y. Monocular visual-inertial odometry with an unbiased linear system model and robust\nfeature tracking front-end. Sensors 2019, 19, 1941. [CrossRef] [PubMed]\n5. Chen, C.; Lu, X.; Markham, A.; Trigoni, N. Ionet: Learning to cure the curse of drift in inertial odometry. In Proceedings of the\nAAAI Conference on Artiﬁcial Intelligence, Brisbane, Australia, 21–25 May 2018.",
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 12
+        },
+        {
+          "text": "Sensors 2022, 22, 9873 14 of 14\n36. Pfrommer, B.; Sanket, N.; Daniilidis, K.; Cleveland, J. Penncosyvio: A challenging visual inertial odometry benchmark. In Proceedings\nof the 2017 IEEE International Conference on Robotics and Automation (ICRA), Singapore, 29 May–3 June 2017; pp. 3847–3854.\n37. Sturm, J.; Engelhard, N.; Endres, F.; Burgard, W.; Cremers, D. A benchmark for the evaluation of RGB-D SLAM systems.\nIn Proceedings of the 2012 IEEE/RSJ International Conference on Intelligent Robots and Systems, Algarve, Portugal, 7–12 October\n2012; pp. 573–580.",
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 14
+        }
+      ],
+      "predicted_answer": "Apple ARKit performed best in the benchmark, achieving a drift error of roughly **0.02 m per second**【1†L1-L4】.",
+      "predicted_sources": [
+        {
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 1
+        },
+        {
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 1
+        },
+        {
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 12
+        },
+        {
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 14
+        }
+      ],
+      "latency_seconds": 0.743,
+      "error": null
+    },
+    {
+      "id": "q02",
+      "question": "How did the VIO benchmark measure positioning accuracy without an external motion capture system?",
+      "type": "factual",
+      "answerable": true,
+      "reference_answer": "The start and end points of every trajectory were made to coincide, and the authors measured the Final Drift Error (FDE), the end-point position error in metres. An ideal FDE is 0, and a large FDE indicates an inaccurate position estimate. Apple ARKit was additionally validated against ground-truth trajectories from an OptiTrack motion capture system, giving relative pose errors of 0.02-0.04 m/s.",
+      "source_hint": "Kim et al. 2022 - Section 4 Experiments, Tables 1 and 2",
+      "retrieved_chunks": [
+        {
+          "text": "Sensors 2022, 22, 9873 2 of 14\n2) have played an important role in several DARPA challenges [13,14] and many commer-\ncial products or apps (Pokémon GO, IKEA Place AR), there is a lack of research for the\nbenchmarking of the positioning accuracy of these closed and proprietary VIO platforms.\nThe motivation of this paper is to address this deﬁciency by performing a comprehen-\nsive evaluation of off-the-shelf commercially available VIO sensors in challenging indoor\nand outdoor environments, as shown in Figure 1. This is the ﬁrst comparative study on\nfour popular proprietary VIO sensors in six challenging real-world scenarios, both indoors\nand outdoors. In particular, we selected the following four proprietary VIO systems, which\nare frequently used in 6-DoF motion-tracking problems:\n• Apple ARKit [11]—Apple’s augmented reality (AR) platform, which includes ﬁltering-\nbased VIO algorithms [15] to enable iOS devices to sense how they move in 3D space.",
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 2
+        },
+        {
+          "text": "1 Department of Mechanical Systems Engineering, Sookmyung Women’s University,\nSeoul 04310, Republic of Korea\n2 Department of Mechanical Engineering, Incheon National University, Incheon 22012, Republic of Korea\n* Correspondence: hgkim@inu.ac.kr\n† These authors contributed equally to this work.\nAbstract: Commercial visual–inertial odometry (VIO) systems have been gaining attention as cost-\neffective, off-the-shelf, six-degree-of-freedom (6-DoF) ego-motion-tracking sensors for estimating\naccurate and consistent camera pose data, in addition to their ability to operate without external\nlocalization from motion capture or global positioning systems. It is unclear from existing results,\nhowever, which commercial VIO platforms are the most stable, consistent, and accurate in terms of\nstate estimation for indoor and outdoor robotic applications. We assessed four popular proprietary\nVIO systems (Apple ARKit, Google ARCore, Intel RealSense T265, and Stereolabs ZED 2) through",
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 1
+        },
+        {
+          "text": "analyses were performed only for ARCore.\nMost important is that no existing work considered an indoor/outdoor performance\nevaluation for four popular proprietary VIO systems that are frequently deployed in robotic\napplications, AR/VR apps, and industrial usages. Our test sequences are authentic and\nillustrate realistic use cases, as they contain challenging environments that are both indoors\nand outdoors with scarce or repetitive visual features and varying motions, from walking\nto driving camera movements. They also include rapid rotations without translation, as\nthese are problematic motions for many VIO/SLAM algorithms. Our work is the ﬁrst to\naddress this need.\n3. Commercial Visual–Inertial Odometry Sensors\nWe brieﬂy summarize the primary features of four off-the-shelf proprietary VIO\nsensors based on data published on the relevant ofﬁcial websites, papers, GitHub, and\npatent documents, as well as how the 6-DoF pose estimates are collected from each VIO",
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 3
+        },
+        {
+          "text": "simple indoor environment with no height changes. A performance evaluation was only\nconducted in a simple 2D indoor environment with a short camera moving distance.\nSince we are focused on the 6-DoF positioning accuracy of proprietary VIO sensors, we\ncan instead consider the existing results that are relevant to this problem. The VIO approach\nproposed in [30] was compared to Google ARCore and VINS-Mono [ 10], but only on a\nfew indoor sequences with very little camera movement. In [24], ARCore, ARKit, and T265\nwere qualitatively compared with the proposed VIO method only on non-public and simple\n2D planar datasets. The evaluation framework in [31] assessed the 6-DoF motion-tracking\nperformance of ARCore with the ground truth under several circumstances, but they lacked\ncomparative results for other proprietary VIO systems, such as ARKit and T265, and detailed\nanalyses were performed only for ARCore.\nMost important is that no existing work considered an indoor/outdoor performance",
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 3
+        }
+      ],
+      "predicted_answer": "I don’t have that information.",
+      "predicted_sources": [
+        {
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 2
+        },
+        {
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 1
+        },
+        {
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 3
+        },
+        {
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 3
+        }
+      ],
+      "latency_seconds": 1.072,
+      "error": null
+    },
+    {
+      "id": "q03",
+      "question": "What two positioning methods does the BIM and GIS based AR evacuation system combine?",
+      "type": "factual",
+      "answerable": true,
+      "reference_answer": "Wi-Fi RSSI fingerprinting, matched by K-nearest-neighbour against an offline database, supplies the user's initial position; pedestrian dead reckoning (PDR) using the smartphone accelerometer and orientation sensors then updates that position as the user walks. The exit route itself comes from a network extracted from the building's BIM model and solved with Dijkstra's algorithm in ArcGIS.",
+      "source_hint": "Valizadeh et al. 2024 - Sections 3.1, 4.1.3, 4.1.4",
+      "retrieved_chunks": [
+        {
+          "text": "Heliyon 10 (2024) e32852\nAvailable online 12 June 2024\n2405-8440/© 2024 Published by Elsevier Ltd. This is an open access article under the CC BY-NC-ND license\n(http://creativecommons.org/licenses/by-nc-nd/4.0/).\nResearch article \nIndoor augmented reality (AR) pedestrian navigation for \nemergency evacuation based on BIM and GIS \nMojtaba Valizadeh a,1, Babak Ranjgar b,1, Alessandro Niccolai b,*, Hamid Hosseini c, \nSoheil Rezaee c, Farshad Hakimpour a \na Department of Geomatics, University College of Engineering, University of Tehran, Tehran, 1439957131, Iran \nb Department of Energy, Politecnico di Milano, La Masa, 34, Milan, 20156, Italy \nc Faculty of Geodesy and Geomatics Engineering, K. N. Toosi University of Technology, Tehran, 1996715433, Iran   \nARTICLE INFO  \nKeywords: \nAugmented reality (AR) \nBIM \nEmergency evacuation \nGIS \nIndoor navigation \nIndoor positioning \nABSTRACT  \nNowadays with the increase of high-rise buildings, emergency evacuation is an indispensable part",
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 1
+        },
+        {
+          "text": "Services Computing Conference, IEEE, 2011, pp. 70–77. \n[42] Y. Ortakci, U. Atila, E. Demiral, K. Ozacar, I.R. Karas, Comparison of a smart mobile application-supported evacuation system and traditional evacuation \nsystems, in: Proceedings of the 1st IAG Workshop on BIM and GIS Integration, 2017. \n[43] A. Depari, A. Flammini, D. Fogli, P. Magrino, Indoor localization for evacuation management in emergency scenarios, in: Proceedings of the 2018 Workshop on \nMetrology for Industry 4.0 and IoT, IEEE, 2018, pp. 146–150. \n[44] Diao, P.H.; Shih, N.J. MARINS: a mobile smartphone AR system for pathfinding in a dark environment. Sensors 2018, Vol. 18, Page 3442 2018, 18, 3442, doi: \n10.3390/S18103442. \n[45] W.Y. Lin, P.H. Lin, H.P. Tserng, Automating the generation of indoor space topology for 3D route planning using BIM and 3D-GIS techniques, in: Proceedings of \nthe ISARC. Proceedings of the International Symposium on Automation and Robotics in Construction, 34, IAARC Publications, 2017.",
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 18
+        },
+        {
+          "text": "show in Fig. 2.  \n1) Creating building network \nIn the beginning, the 2D map of the building is converted to BIM from CAD environment using Revit. Then, the BIM model is \nexported into a file geodatabase to be used in GIS environment for building network and spatial analysis purposes.  \n2) Positioning and navigation \nAs mentioned before, a Wi-Fi fingerprinting approach is employed for users’ initial position acquisition. For this purpose, a mobile \napplication is developed to record the RSSIs of different available WLAN sensors when standing in a specific position. With this app, the \nfingerprinting phase can be done easily and faster. When a user, running the AR emergency evacuation application on their smart-\nphone, starts the app, it begins to receive the available RSSIs and using the fingerprinting database in the smartphone it can calculate \nthe user’s starting point. Next, the initial position is sent to the server component to compute the exit path.  \n3) Augmented Reality",
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 4
+        },
+        {
+          "text": "5. Valizadeh, M.; Ranjgar, B.; Niccolai, A.; Hosseini, H.; Rezaee, S.; Hakimpour, F. Indoor Augmented Reality (AR) Pedestrian\nNavigation for Emergency Evacuation Based on BIM and GIS. Heliyon 2024, 10, e32852. [CrossRef] [PubMed]\n6. Ahn, Y.; Choi, H.; Choi, R.; Ahn, S.; Kim, B.S. BIM-Based Augmented Reality Navigation for Indoor Emergency Evacuation.\nExpert Syst. Appl. 2024, 255, 124469. [CrossRef]\n7. Rakkolainen, I.; Farooq, A.; Kangas, J.; Hakulinen, J.; Rantala, J.; Turunen, M.; Raisamo, R. Technologies for Multimodal Interaction\nin Extended Reality—A Scoping Review. Multimodal T echnol. Interact. 2021, 5, 81. [CrossRef]\n8. Bibbo, L.; Bramanti, A.; Sharma, J.; Cotroneo, F. AR Platform for Indoor Navigation: New Potential Approach Extensible to Older\nPeople with Cognitive Impairment. BioMedInformatics 2024, 4, 1589–1619. [CrossRef]\n9. Bhowmik, A.K. Virtual and Augmented Reality: Human Sensory-Perceptual Requirements and Trends for Immersive Spatial",
+          "source": "information-16-00478.pdf",
+          "page": 14
+        }
+      ],
+      "predicted_answer": "The system combines **Wi‑Fi fingerprinting** (used to determine the user’s starting point) with **AR‑based visual positioning** (used to guide the user during evacuation).【4】",
+      "predicted_sources": [
+        {
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 1
+        },
+        {
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 18
+        },
+        {
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 4
+        },
+        {
+          "source": "information-16-00478.pdf",
+          "page": 14
+        }
+      ],
+      "latency_seconds": 2.218,
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,778 @@
+{
+  "run": {
+    "tag": "baseline",
+    "timestamp_utc": "20261015T101417Z",
+    "gold_set": "eval\\gold_set.json",
+    "embed_model": "all-MiniLM-L6-v2",
+    "llm_model": "openai/gpt-oss-20b",
+    "top_k": 4,
+    "question_count": 15
+  },
+  "results": [
+    {
+      "id": "q01",
+      "question": "Which visual-inertial odometry system performed best in the benchmark, and what drift error did it achieve?",
+      "type": "factual",
+      "answerable": true,
+      "reference_answer": "Apple ARKit was the most stable, accurate and consistent of the four proprietary VIO systems tested (Apple ARKit, Google ARCore, Intel RealSense T265, Stereolabs ZED 2). Its relative pose error corresponded to a drift of about 0.02 m per second.",
+      "source_hint": "Kim et al. 2022 - abstract, Section 6 Conclusions",
+      "retrieved_chunks": [
+        {
+          "text": "VIO systems (Apple ARKit, Google ARCore, Intel RealSense T265, and Stereolabs ZED 2) through\na series of both indoor and outdoor experiments in which we showed their positioning stability,\nconsistency, and accuracy. After evaluating four popular VIO sensors in challenging real-world\nindoor and outdoor scenarios, Apple ARKit showed the most stable and high accuracy/consistency,\nand the relative pose error was a drift error of about 0.02 m per second. We present our complete\nresults as a benchmark comparison for the research community.\nKeywords: visual navigation; visual–inertial odometry; Apple ARKit; Google ARCore; VIO\n1. Introduction\nVisual–inertial odometry (VIO) is the process of determining the position and ori-\nentation of a camera and inertial measurement unit (IMU) rig in 3D space by analyzing\nthe associated camera images and IMU data from the visual–inertial sensors. It is one\nof the fundamental building blocks for 6-DoF ego-motion estimation in a variety of do-",
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 1
+        },
+        {
+          "text": "Citation: Kim, P .; Kim, J.; Song, M.;\nLee, Y.; Jung, M.; Kim, H.-G.\nA Benchmark Comparison of\nFour Off-the-Shelf Proprietary\nVisual–Inertial Odometry Systems.\nSensors 2022, 22, 9873. https://\ndoi.org/10.3390/s22249873\nAcademic Editor: Petros Daras\nReceived: 20 October 2022\nAccepted: 4 December 2022\nPublished: 15 December 2022\nPublisher’s Note:MDPI stays neutral\nwith regard to jurisdictional claims in\npublished maps and institutional afﬁl-\niations.\nCopyright: © 2022 by the authors.\nLicensee MDPI, Basel, Switzerland.\nThis article is an open access article\ndistributed under the terms and\nconditions of the Creative Commons\nAttribution (CC BY) license (https://\ncreativecommons.org/licenses/by/\n4.0/).\nsensors\nArticle\nA Benchmark Comparison of Four Off-the-Shelf Proprietary\nVisual–Inertial Odometry Systems\nPyojin Kim 1,†, Jungha Kim 1,†, Minkyeong Song 1, Yeoeun Lee 1, Moonkyeong Jung 1 and Hyeong-Geun Kim 2,*\n1 Department of Mechanical Systems Engineering, Sookmyung Women’s University,",
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 1
+        },
+        {
+          "text": "quadrotors. IEEE Robot. Autom. Lett. 2018, 3, 1801–1807. [CrossRef]\n4. Qiu, X.; Zhang, H.; Fu, W.; Zhao, C.; Jin, Y. Monocular visual-inertial odometry with an unbiased linear system model and robust\nfeature tracking front-end. Sensors 2019, 19, 1941. [CrossRef] [PubMed]\n5. Chen, C.; Lu, X.; Markham, A.; Trigoni, N. Ionet: Learning to cure the curse of drift in inertial odometry. In Proceedings of the\nAAAI Conference on Artiﬁcial Intelligence, Brisbane, Australia, 21–25 May 2018.",
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 12
+        },
+        {
+          "text": "Sensors 2022, 22, 9873 14 of 14\n36. Pfrommer, B.; Sanket, N.; Daniilidis, K.; Cleveland, J. Penncosyvio: A challenging visual inertial odometry benchmark. In Proceedings\nof the 2017 IEEE International Conference on Robotics and Automation (ICRA), Singapore, 29 May–3 June 2017; pp. 3847–3854.\n37. Sturm, J.; Engelhard, N.; Endres, F.; Burgard, W.; Cremers, D. A benchmark for the evaluation of RGB-D SLAM systems.\nIn Proceedings of the 2012 IEEE/RSJ International Conference on Intelligent Robots and Systems, Algarve, Portugal, 7–12 October\n2012; pp. 573–580.",
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 14
+        }
+      ],
+      "predicted_answer": "Apple ARKit performed best in the benchmark, achieving a drift error of roughly **0.02 m per second**【1†L1-L4】.",
+      "predicted_sources": [
+        {
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 1
+        },
+        {
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 1
+        },
+        {
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 12
+        },
+        {
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 14
+        }
+      ],
+      "latency_seconds": 0.523,
+      "error": null
+    },
+    {
+      "id": "q02",
+      "question": "How did the VIO benchmark measure positioning accuracy without an external motion capture system?",
+      "type": "factual",
+      "answerable": true,
+      "reference_answer": "The start and end points of every trajectory were made to coincide, and the authors measured the Final Drift Error (FDE), the end-point position error in metres. An ideal FDE is 0, and a large FDE indicates an inaccurate position estimate. Apple ARKit was additionally validated against ground-truth trajectories from an OptiTrack motion capture system, giving relative pose errors of 0.02-0.04 m/s.",
+      "source_hint": "Kim et al. 2022 - Section 4 Experiments, Tables 1 and 2",
+      "retrieved_chunks": [
+        {
+          "text": "Sensors 2022, 22, 9873 2 of 14\n2) have played an important role in several DARPA challenges [13,14] and many commer-\ncial products or apps (Pokémon GO, IKEA Place AR), there is a lack of research for the\nbenchmarking of the positioning accuracy of these closed and proprietary VIO platforms.\nThe motivation of this paper is to address this deﬁciency by performing a comprehen-\nsive evaluation of off-the-shelf commercially available VIO sensors in challenging indoor\nand outdoor environments, as shown in Figure 1. This is the ﬁrst comparative study on\nfour popular proprietary VIO sensors in six challenging real-world scenarios, both indoors\nand outdoors. In particular, we selected the following four proprietary VIO systems, which\nare frequently used in 6-DoF motion-tracking problems:\n• Apple ARKit [11]—Apple’s augmented reality (AR) platform, which includes ﬁltering-\nbased VIO algorithms [15] to enable iOS devices to sense how they move in 3D space.",
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 2
+        },
+        {
+          "text": "1 Department of Mechanical Systems Engineering, Sookmyung Women’s University,\nSeoul 04310, Republic of Korea\n2 Department of Mechanical Engineering, Incheon National University, Incheon 22012, Republic of Korea\n* Correspondence: hgkim@inu.ac.kr\n† These authors contributed equally to this work.\nAbstract: Commercial visual–inertial odometry (VIO) systems have been gaining attention as cost-\neffective, off-the-shelf, six-degree-of-freedom (6-DoF) ego-motion-tracking sensors for estimating\naccurate and consistent camera pose data, in addition to their ability to operate without external\nlocalization from motion capture or global positioning systems. It is unclear from existing results,\nhowever, which commercial VIO platforms are the most stable, consistent, and accurate in terms of\nstate estimation for indoor and outdoor robotic applications. We assessed four popular proprietary\nVIO systems (Apple ARKit, Google ARCore, Intel RealSense T265, and Stereolabs ZED 2) through",
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 1
+        },
+        {
+          "text": "analyses were performed only for ARCore.\nMost important is that no existing work considered an indoor/outdoor performance\nevaluation for four popular proprietary VIO systems that are frequently deployed in robotic\napplications, AR/VR apps, and industrial usages. Our test sequences are authentic and\nillustrate realistic use cases, as they contain challenging environments that are both indoors\nand outdoors with scarce or repetitive visual features and varying motions, from walking\nto driving camera movements. They also include rapid rotations without translation, as\nthese are problematic motions for many VIO/SLAM algorithms. Our work is the ﬁrst to\naddress this need.\n3. Commercial Visual–Inertial Odometry Sensors\nWe brieﬂy summarize the primary features of four off-the-shelf proprietary VIO\nsensors based on data published on the relevant ofﬁcial websites, papers, GitHub, and\npatent documents, as well as how the 6-DoF pose estimates are collected from each VIO",
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 3
+        },
+        {
+          "text": "simple indoor environment with no height changes. A performance evaluation was only\nconducted in a simple 2D indoor environment with a short camera moving distance.\nSince we are focused on the 6-DoF positioning accuracy of proprietary VIO sensors, we\ncan instead consider the existing results that are relevant to this problem. The VIO approach\nproposed in [30] was compared to Google ARCore and VINS-Mono [ 10], but only on a\nfew indoor sequences with very little camera movement. In [24], ARCore, ARKit, and T265\nwere qualitatively compared with the proposed VIO method only on non-public and simple\n2D planar datasets. The evaluation framework in [31] assessed the 6-DoF motion-tracking\nperformance of ARCore with the ground truth under several circumstances, but they lacked\ncomparative results for other proprietary VIO systems, such as ARKit and T265, and detailed\nanalyses were performed only for ARCore.\nMost important is that no existing work considered an indoor/outdoor performance",
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 3
+        }
+      ],
+      "predicted_answer": "I don’t have that information.",
+      "predicted_sources": [
+        {
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 2
+        },
+        {
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 1
+        },
+        {
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 3
+        },
+        {
+          "source": "sensors-22-09873-v2.pdf",
+          "page": 3
+        }
+      ],
+      "latency_seconds": 0.948,
+      "error": null
+    },
+    {
+      "id": "q03",
+      "question": "What two positioning methods does the BIM and GIS based AR evacuation system combine?",
+      "type": "factual",
+      "answerable": true,
+      "reference_answer": "Wi-Fi RSSI fingerprinting, matched by K-nearest-neighbour against an offline database, supplies the user's initial position; pedestrian dead reckoning (PDR) using the smartphone accelerometer and orientation sensors then updates that position as the user walks. The exit route itself comes from a network extracted from the building's BIM model and solved with Dijkstra's algorithm in ArcGIS.",
+      "source_hint": "Valizadeh et al. 2024 - Sections 3.1, 4.1.3, 4.1.4",
+      "retrieved_chunks": [
+        {
+          "text": "Heliyon 10 (2024) e32852\nAvailable online 12 June 2024\n2405-8440/© 2024 Published by Elsevier Ltd. This is an open access article under the CC BY-NC-ND license\n(http://creativecommons.org/licenses/by-nc-nd/4.0/).\nResearch article \nIndoor augmented reality (AR) pedestrian navigation for \nemergency evacuation based on BIM and GIS \nMojtaba Valizadeh a,1, Babak Ranjgar b,1, Alessandro Niccolai b,*, Hamid Hosseini c, \nSoheil Rezaee c, Farshad Hakimpour a \na Department of Geomatics, University College of Engineering, University of Tehran, Tehran, 1439957131, Iran \nb Department of Energy, Politecnico di Milano, La Masa, 34, Milan, 20156, Italy \nc Faculty of Geodesy and Geomatics Engineering, K. N. Toosi University of Technology, Tehran, 1996715433, Iran   \nARTICLE INFO  \nKeywords: \nAugmented reality (AR) \nBIM \nEmergency evacuation \nGIS \nIndoor navigation \nIndoor positioning \nABSTRACT  \nNowadays with the increase of high-rise buildings, emergency evacuation is an indispensable part",
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 1
+        },
+        {
+          "text": "Services Computing Conference, IEEE, 2011, pp. 70–77. \n[42] Y. Ortakci, U. Atila, E. Demiral, K. Ozacar, I.R. Karas, Comparison of a smart mobile application-supported evacuation system and traditional evacuation \nsystems, in: Proceedings of the 1st IAG Workshop on BIM and GIS Integration, 2017. \n[43] A. Depari, A. Flammini, D. Fogli, P. Magrino, Indoor localization for evacuation management in emergency scenarios, in: Proceedings of the 2018 Workshop on \nMetrology for Industry 4.0 and IoT, IEEE, 2018, pp. 146–150. \n[44] Diao, P.H.; Shih, N.J. MARINS: a mobile smartphone AR system for pathfinding in a dark environment. Sensors 2018, Vol. 18, Page 3442 2018, 18, 3442, doi: \n10.3390/S18103442. \n[45] W.Y. Lin, P.H. Lin, H.P. Tserng, Automating the generation of indoor space topology for 3D route planning using BIM and 3D-GIS techniques, in: Proceedings of \nthe ISARC. Proceedings of the International Symposium on Automation and Robotics in Construction, 34, IAARC Publications, 2017.",
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 18
+        },
+        {
+          "text": "show in Fig. 2.  \n1) Creating building network \nIn the beginning, the 2D map of the building is converted to BIM from CAD environment using Revit. Then, the BIM model is \nexported into a file geodatabase to be used in GIS environment for building network and spatial analysis purposes.  \n2) Positioning and navigation \nAs mentioned before, a Wi-Fi fingerprinting approach is employed for users’ initial position acquisition. For this purpose, a mobile \napplication is developed to record the RSSIs of different available WLAN sensors when standing in a specific position. With this app, the \nfingerprinting phase can be done easily and faster. When a user, running the AR emergency evacuation application on their smart-\nphone, starts the app, it begins to receive the available RSSIs and using the fingerprinting database in the smartphone it can calculate \nthe user’s starting point. Next, the initial position is sent to the server component to compute the exit path.  \n3) Augmented Reality",
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 4
+        },
+        {
+          "text": "5. Valizadeh, M.; Ranjgar, B.; Niccolai, A.; Hosseini, H.; Rezaee, S.; Hakimpour, F. Indoor Augmented Reality (AR) Pedestrian\nNavigation for Emergency Evacuation Based on BIM and GIS. Heliyon 2024, 10, e32852. [CrossRef] [PubMed]\n6. Ahn, Y.; Choi, H.; Choi, R.; Ahn, S.; Kim, B.S. BIM-Based Augmented Reality Navigation for Indoor Emergency Evacuation.\nExpert Syst. Appl. 2024, 255, 124469. [CrossRef]\n7. Rakkolainen, I.; Farooq, A.; Kangas, J.; Hakulinen, J.; Rantala, J.; Turunen, M.; Raisamo, R. Technologies for Multimodal Interaction\nin Extended Reality—A Scoping Review. Multimodal T echnol. Interact. 2021, 5, 81. [CrossRef]\n8. Bibbo, L.; Bramanti, A.; Sharma, J.; Cotroneo, F. AR Platform for Indoor Navigation: New Potential Approach Extensible to Older\nPeople with Cognitive Impairment. BioMedInformatics 2024, 4, 1589–1619. [CrossRef]\n9. Bhowmik, A.K. Virtual and Augmented Reality: Human Sensory-Perceptual Requirements and Trends for Immersive Spatial",
+          "source": "information-16-00478.pdf",
+          "page": 14
+        }
+      ],
+      "predicted_answer": "The system combines **Wi‑Fi fingerprinting** for the initial user position acquisition with **BIM‑ and GIS‑based indoor navigation** for path planning and guidance【4†L1-L9】.",
+      "predicted_sources": [
+        {
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 1
+        },
+        {
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 18
+        },
+        {
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 4
+        },
+        {
+          "source": "information-16-00478.pdf",
+          "page": 14
+        }
+      ],
+      "latency_seconds": 2.17,
+      "error": null
+    },
+    {
+      "id": "q04",
+      "question": "How was the AR evacuation application evaluated, and what score did it achieve?",
+      "type": "factual",
+      "answerable": true,
+      "reference_answer": "It was evaluated with the System Usability Scale (SUS), a ten-question survey completed by 21 participants, 10 familiar with the building and 11 unfamiliar. The application scored 70.59, which is above the 68 average benchmark and falls within the 'good' category (62.7-72.5).",
+      "source_hint": "Valizadeh et al. 2024 - Section 5 Evaluation",
+      "retrieved_chunks": [
+        {
+          "text": "sensors. Furthermore, AR was used to convey the path direction to the user. Eventually, the proposed method was evaluated with a \nsample audience that achieved acceptable results with a SUS score of 70.59. \nHowever, there were numerous limitations involved in this research. The most important point to note is that only one exit point \nwas considered. In real life situations, usually there are multiple exit and emergency exit points in buildings; in addition, also windows \nof the first floor can be in some cases regarded as exits. Future studies can take into consideration all these exits and could consider tant \nsome of these exits might not be accessible due to fire or debris blocking. Another point to focus is the crowd congestion in exits that \nshould be thought out for an optimal evacuation. Furthermore, designing various scenarios for a better modeling of the emergency",
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 16
+        },
+        {
+          "text": "experience with the app, they filled out a questionnaire which was designed in the system us-\nability scale test (SUS) format. The evaluation results showed that the app achieved an acceptable \nsuitability for usage.   \n1. Introduction \nEmergency evacuation is a key risk-reduction strategy for disaster-threatened buildings, thus a necessary part of urban environ-\nment management and safety [1]. There has been extensive study on simulation and planning of population evacuation in times of \n* Corresponding author. \nE-mail address: alessandro.niccolai@polimi.it (A. Niccolai).   \n1 These authors contributed equally. \nContents lists available at ScienceDirect \nHeliyon \njournal homepage: www.cell.com/heliyon \nhttps://doi.org/10.1016/j.heliyon.2024.e32852 \nReceived 13 December 2023; Received in revised form 29 May 2024; Accepted 11 June 2024",
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 1
+        },
+        {
+          "text": "the user’s starting point. Next, the initial position is sent to the server component to compute the exit path.  \n3) Augmented Reality \nAfterwards, the app receives and stores the generated path from server. Based on the initial and next positions, it then calculates the \ndistance and direction for the user. Finally, the AR emergency evacuation app graphically represents the navigational guide on user’s \nsmartphone screen. \nFig. 2. The overview of the proposed methodology.  \nM. Valizadeh et al.",
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 4
+        },
+        {
+          "text": "Heliyon 10 (2024) e32852\nAvailable online 12 June 2024\n2405-8440/© 2024 Published by Elsevier Ltd. This is an open access article under the CC BY-NC-ND license\n(http://creativecommons.org/licenses/by-nc-nd/4.0/).\nResearch article \nIndoor augmented reality (AR) pedestrian navigation for \nemergency evacuation based on BIM and GIS \nMojtaba Valizadeh a,1, Babak Ranjgar b,1, Alessandro Niccolai b,*, Hamid Hosseini c, \nSoheil Rezaee c, Farshad Hakimpour a \na Department of Geomatics, University College of Engineering, University of Tehran, Tehran, 1439957131, Iran \nb Department of Energy, Politecnico di Milano, La Masa, 34, Milan, 20156, Italy \nc Faculty of Geodesy and Geomatics Engineering, K. N. Toosi University of Technology, Tehran, 1996715433, Iran   \nARTICLE INFO  \nKeywords: \nAugmented reality (AR) \nBIM \nEmergency evacuation \nGIS \nIndoor navigation \nIndoor positioning \nABSTRACT  \nNowadays with the increase of high-rise buildings, emergency evacuation is an indispensable part",
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 1
+        }
+      ],
+      "predicted_answer": "The AR evacuation application was evaluated using a **System Usability Scale (SUS) questionnaire** filled out by users after interacting with the app. The SUS results indicated that the app was acceptable for use, achieving a **SUS score of 70.59**【Indooraugmentedrealitypedestriannavigation_Heliyon.pdf, page 1】【Indooraugmentedrealitypedestriannavigation_Heliyon.pdf, page 16】",
+      "predicted_sources": [
+        {
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 16
+        },
+        {
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 1
+        },
+        {
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 4
+        },
+        {
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 1
+        }
+      ],
+      "latency_seconds": 0.552,
+      "error": null
+    },
+    {
+      "id": "q05",
+      "question": "Why did the authors of the semantics-based connectivity graph define a new IFC relationship entity, and what is it called?",
+      "type": "factual",
+      "answerable": true,
+      "reference_answer": "IFC provides IfcRelSpaceBoundary for horizontal connectivity but specifies no relationship for vertical storey-to-storey connection, which blocks construction of a building-wide connectivity graph. The authors therefore defined a new relationship entity, IfcRelConnectsSpace, which links vertical connecting elements such as stairs, ramps, lifts and escalators to spaces on different storeys.",
+      "source_hint": "Zhu et al. - Section 3.1.2 Vertical connectivity",
+      "retrieved_chunks": [
+        {
+          "text": "6 of 29 \n \n3.1.2 Vertical connectivity 219 \nWhile IfcRelSpaceBoundary supports the establishment of horizontal connectivity , t here is a  220 \nproblem in the vertical direction , i.e., IFC has not specified any relationships for vertical storey-to-221 \nstorey connection [9,37,42]. IfcRelSpaceBoundary might be able to provide such semantics, as IFC 222 \ndefines that any ‘IfcElement’ can be involved as a boundary [44] , but this use has not been adopted 223 \nby the industry. The lack of vertical connection impedes the creation of a building-wide connectivity 224 \ngraph. Therefore, in this paper, a new relationship entity has been defined, i.e., IfcRelConnectsSpace 225 \n(see Figure 3). This new relationship entity defines how vertical connections can be established by 226 \nlinking vertical connecting elements (such as stair, ramp, lift, and escalator) with spaces on different 227 \nstoreys. Overall, the space, connecting elements (both horizontal and vertical), IfcRelSpaceBoundary, 228",
+          "source": "Manuscript_clean.pdf",
+          "page": 6
+        },
+        {
+          "text": "IfcVirtualElement in IFC). The space (IfcSpace), boundary relationship (IfcRelSpaceBou ndary), and 211 \nthe boundary elements (IfcElement) form the basis of the horizontal connectivity graph.  However, 212 \nnot every boundary element can be used to connect spaces, such as slabs or walls. Elements that  are 213 \nused to connect spaces are referred to as connecting elements in this paper, such as doors, windows, 214 \nand openings. Other studies may use a different  term to refer to the connecting elements , such as 215 \n‘portals’ used by Teo and Cho [9]. 216 \n 217 \nFigure 2 IfcRelSpaceBoundary entity for establishing horizontal connections. 218",
+          "source": "Manuscript_clean.pdf",
+          "page": 5
+        },
+        {
+          "text": "possible to introduce information not defined in IFC, like the size of space, into the connectivity graph, 509 \nin that case, additional geometry processing is required. Figure 16 shows the screenshots of the neo4j 510 \ndatabases, which are examples of the data model for space, door, and the space boundary 511 \nrelationship. The list of IFC entities above each subfigure are labels showing the entities to which the 512",
+          "source": "Manuscript_clean.pdf",
+          "page": 17
+        },
+        {
+          "text": "information in IFC refers to attributes and properties of building and spatial elements; the geometric 177 \ninformation refers to the shape, size, and location, and the topological information is derived from 178 \nrelationships in IFC. Relationship entities in IFC are used to connect objects and indicate relation, for 179 \nexample spatial aggregation, spatial containment, and element connectivity. 180",
+          "source": "Manuscript_clean.pdf",
+          "page": 4
+        }
+      ],
+      "predicted_answer": "The authors introduced a new IFC relationship entity because the existing IFC model does not provide a way to express vertical connections between spaces on different storeys, which prevents the construction of a complete building‑wide connectivity graph. To enable vertical connectivity (e.g., via stairs, ramps, lifts, escalators), they defined a new relationship entity called **IfcRelConnectsSpace**【6 of 29】.",
+      "predicted_sources": [
+        {
+          "source": "Manuscript_clean.pdf",
+          "page": 6
+        },
+        {
+          "source": "Manuscript_clean.pdf",
+          "page": 5
+        },
+        {
+          "source": "Manuscript_clean.pdf",
+          "page": 17
+        },
+        {
+          "source": "Manuscript_clean.pdf",
+          "page": 4
+        }
+      ],
+      "latency_seconds": 0.586,
+      "error": null
+    },
+    {
+      "id": "q06",
+      "question": "How does the NavARNode application determine the user's starting position?",
+      "type": "factual",
+      "answerable": true,
+      "reference_answer": "Through marker nodes, each of which generates a QR code carrying a unique GUID, implemented with the open-source ZXing.Net library. When the user scans the printed QR code, their position is initialised to that marker's stored location, which avoids any dependence on BLE beacons, RFID or other additional hardware.",
+      "source_hint": "Putra et al. 2025 - Section 2.2, component 4 (Marker-Based Position Initialization)",
+      "retrieved_chunks": [
+        {
+          "text": "Information 2025, 16, 478 10 of 15\nFigure 3. The navigation flow of the NavARNode application during indoor navigation.",
+          "source": "information-16-00478.pdf",
+          "page": 10
+        },
+        {
+          "text": "Fig. 9. The user interface of the system.  \nFig. 10. Obtaining initial position in online mode through the offline database.  \nM. Valizadeh et al.",
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 9
+        },
+        {
+          "text": "Information 2025, 16, 478 9 of 15\nFigure 2. User flow of the NavARNode application during the indoor mapping process.",
+          "source": "information-16-00478.pdf",
+          "page": 9
+        },
+        {
+          "text": "(see Figure 2, connected nodes). NavMesh helps visualize the traversable areas and dif-\nferentiates them from the original floor. Then, the application stores the map, enabling\nfuture navigation using predefined nodes. The system can start functioning once the node’s\nnavigation has been set up, as shown in Figure 3.\nFigure 3 demonstrates the navigation workflow of the NavARNode application. Users\nbegin on the building selection screen, choosing from a list of previously saved buildings,\nor adding a new one. After selecting a building, users access the building’s detail page,\nwhich provides options for starting the mapping process or initiating navigation. To\nstart the navigation features, users tap the “Marker” button to view a list of available\ndestinations using QR codes. Upon selecting a marker, the user is directed to the scanner\ninterface to scan the printed QR code in the physical environment. By scanning the QR",
+          "source": "information-16-00478.pdf",
+          "page": 8
+        }
+      ],
+      "predicted_answer": "The NavARNode app establishes the user’s starting position by having the user scan a QR code that is placed at the desired start location.  \nWhen the user taps the “Marker” button, a list of available destinations (each represented by a QR code) is shown. The user selects a marker, the app opens the scanner interface, and the QR code is scanned. The scanned code is matched to a predefined node in the offline map database, and that node’s coordinates are set as the user’s starting point for navigation.  \n\n*Sources: information‑16‑00478.pdf, pages 8–9; Indooraugmentedrealitypedestriannavigation_Heliyon.pdf, page 9.*",
+      "predicted_sources": [
+        {
+          "source": "information-16-00478.pdf",
+          "page": 10
+        },
+        {
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 9
+        },
+        {
+          "source": "information-16-00478.pdf",
+          "page": 9
+        },
+        {
+          "source": "information-16-00478.pdf",
+          "page": 8
+        }
+      ],
+      "latency_seconds": 0.93,
+      "error": null
+    },
+    {
+      "id": "q07",
+      "question": "In the QR code map approach, what information does a device obtain by scanning a QR code, and how is it computed?",
+      "type": "factual",
+      "answerable": true,
+      "reference_answer": "Scanning yields the device's absolute position and orientation in the geodetic coordinate system. The QR code's four corner points are detected in the image using the ZBar library, and because the real-world coordinates of those corners are encoded in the code, the resulting 2D-3D point pairs are solved as a Perspective-n-Point problem (P3P, with an extra pair for validation) to recover camera pose. An extended Kalman filter then fuses this observation with pedestrian dead reckoning to eliminate accumulated error.",
+      "source_hint": "Liu & Zhang 2023 - Sections 2.2 and 2.3",
+      "retrieved_chunks": [
+        {
+          "text": "interface to scan the printed QR code in the physical environment. By scanning the QR\ncode, users initiate the navigation process and provide the starting point to navigate using\nAR mobile applications. Once initialized, the navigation interface displays a virtual guide\npath leading to the selected destination, rendered using AR overlays such as directional\narrows (Please see Figure 3). Further details on the system’s operation are available in the\nSupplementary Materials.",
+          "source": "information-16-00478.pdf",
+          "page": 8
+        },
+        {
+          "text": "of information including, but not limited to: unique identific-\nation codes; three-dimensional corner position data referenced\nFigure 2. QR code Map.\nto a world coordinate system; floor-level data; node-type data;\nconnectivity data for linked edges; lists of typically reachable\nnodes; and positional offsets. Relationships between nodes\nare represented as edges corresponding to traversable pathways\nsuch as corridors. Edge data includes unique identification\ncodes; start and end nodes; length and width measurements;\nand centerline data. Table 1 presents an overview of QR code\nnode content, while Table 2 details edge content. QR codes are\ndeployed at each node within the indoor map network. Geo-\ndetic coordinates for corners may be obtained through tech-\nniques such as in situ measurement using a total station.\n2.2 Indoor Positioning Method Based on QR Codes\nQR codes are composed of black squares arranged in a square\ngrid on a white background. They can be detected and decoded",
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 2
+        },
+        {
+          "text": "analogy, if stable indoor positioning can be achieved through\nthe use of INS in conjunction with control points, and com-\nbined with an indoor path network map, it may be possible to\nrealize long-term, long-distance, and stable indoor navigation.\nQuick Response (QR) codes provide an effective means of stor-\ning absolute pose information, offering benefits such as ease of\nacquisition, simple deployment, and low cost. Utilizing vari-\nous encoding methods, QR codes are capable of representing a\ndiverse range of information and may also function as control\npoints within a scene. Furthermore, by considering indoor QR\ncodes as network nodes and their interrelationships as edges,\nfor the above indoor path network, if each node is a QR code,\nit can be called a QR code Map. The QR code information in-\ncludes but is not limited to ID, location, floor, features (stairs,\nelevators, corridors, etc.), adjacent edges, etc. The edge is com-\nposed of connected QR codes and its information includes but",
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 1
+        },
+        {
+          "text": "reckoning. A vertical projection is made to the centerline of the\ncurrent planned path, and the projection point Pi is taken as\nthe calculated position after calibration and used as the starting\npoint for the next calculation. At the same time, the camera\nimmediately starts searching for nearby node QR codes for pose\nestimation until a successful scan is achieved.\nFigure 4. Navigation based on QR code Map.\n3. EXPERIMENT\nUtilizing a laser rangefinder and protractor, images are captured\nby a mobile phone camera at distances of 1, 2, and 3 meters\nfrom the center of a Quick Response (QR) code along both 0°\nand 45° axes. Twenty images are captured at each position, as\nillustrated in Figure 6. At each position, the true location and\npose of the mobile phone camera within a world coordinate sys-\ntem are determined using a total station. Tables 3 and 4 present\ndata on the relationship between QR code detection error, dis-\ntance, and angle.",
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 4
+        }
+      ],
+      "predicted_answer": "In the QR‑code map approach the mobile device reads the data that is encoded in the QR code that is physically attached to each node of the indoor map.  \nThe information that is obtained by a scan includes:\n\n* **Node ID** – a unique identifier for the QR code.  \n* **Absolute pose of the node** – its 3‑D position (and often its orientation) in the world coordinate system.  \n* **Floor level** – which floor the node belongs to.  \n* **Node features** – such as whether the node is a stair, elevator, corridor junction, etc.  \n* **Adjacency information** – the list of edges (connected QR‑code nodes) that can be traversed from this node.  \n\n(These contents are described in the paper as “ID, location, floor, features (stairs, elevators, corridors, etc.), adjacent edges, etc.” – see R_K_LIU_Indoor_positioning_and_navigation.pdf, page 2.)\n\n**How the information is computed**\n\n1. **Decoding the QR code** – The camera captures an image of the QR code; the device decodes the black‑square pattern to recover the encoded data (ID, pose, etc.)【R_K_LIU_Indoor_positioning_and_navigation.pdf, page 2】.  \n2. **Pose estimation** – Using the known geometry of the QR code (its size and the coordinates of its corners) and the camera’s intrinsic parameters, the device solves for the camera pose that aligns the detected QR code with its known world pose. This gives the device’s absolute position and orientation relative to the world coordinate system.  \n3. **Path projection** – Once the pose is known, the device projects the current planned path onto the centerline of the path network; the projection point \\(P_i\\) becomes the starting point for the next navigation step【R_K_LIU_Indoor_positioning_and_navigation.pdf, page 4】.  \n\nThus, by scanning a QR code the device obtains the node’s identity and absolute pose, and it computes its own position by decoding the QR code and performing a pose‑estimation calculation that references the known map.",
+      "predicted_sources": [
+        {
+          "source": "information-16-00478.pdf",
+          "page": 8
+        },
+        {
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 2
+        },
+        {
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 1
+        },
+        {
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 4
+        }
+      ],
+      "latency_seconds": 15.728,
+      "error": null
+    },
+    {
+      "id": "q08",
+      "question": "What did the systematic review conclude about AR's effect on wayfinding performance?",
+      "type": "conceptual",
+      "answerable": true,
+      "reference_answer": "The findings were mixed. Performance improvements from AR were consistently demonstrated in indoor environments but not in outdoor ones. The review also found that visual guidance tends to be more effective than auditory cues, that incorporating overview maps greatly improves AR's performance benefits, and that AR reduces cognitive load and improves cognitive map development compared with traditional guidance such as paper maps.",
+      "source_hint": "Qiu et al. 2025 - abstract, Section 5 Discussion",
+      "retrieved_chunks": [
+        {
+          "text": "details about their AR system configurations and technical \nimplementations, making it hard to draw conclusions about \noptimal approaches for different use cases or how these tech-\nnical configurations may have affected the study outcomes.\nFuture research should strive to expand the scope and \nrobustness of AR wayfinding studies, by simultaneously \nconsidering more variables in the same experiment, obtain-\ning larger and more diverse participant samples, and using \nmore complex and realistic wayfinding tasks. A central goal \nshould be to delve deeper into specific AR design and con -\nfiguration considerations, and to investigate the nuanced \ninterplay between different information modalities. In \nthe current literature review we had to rely on comparing \ndisparate studies that used distinct wayfinding tasks and \nprotocols to synthesize an overview perspective. Future \nresearchers can build upon the review’s conclusions by \ndirectly integrating the emerging variables of interest, for",
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 23
+        },
+        {
+          "text": "is relevant as well, and this may be an important consider -\nation in studies that recruit participants who have no prior \nexperience with AR and then end the research after only a \nfew minutes of exposure. The topic of mental effort is a sig-\nnificant consideration in this research area because the goal \nof navigational AR is to enhance the wayfinding experience, \nand high cognitive loads may result in poor usability, a lack \nof acceptance, and reduced effectiveness.\n3 Methods\nWe conducted a systematic literature review to identify, \nevaluate, and synthesize the existing body of relevant schol-\narship (Fink 2019; Xiao and Watson 2019). The PRISMA \n(Preferred Reporting Items for Systematic Reviews and \nMeta-analyses) method was used to guide the screening and \nanalysis (Liberati et al. 2009).\n3.1 Search strategy\nWe conducted a search of published academic studies in \nFebruary of 2023, followed by an additional catch-up review \nin December of 2024. The reviews’ protocol was registered",
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 5
+        },
+        {
+          "text": "cognition. We did not find any studies at all addressing AR’s \nrelation to navigational decision-making processes or spe -\ncific wayfinding behaviors. Moreover, many of the studies \nin the review suffered from small sample sizes, often includ-\ning fewer than 10 participants. This scarcity of data may \nlimit their ability to derive statistically significant insights. \nIt is not entirely surprising to see a dearth of research litera-\nture in these areas since AR is a relatively new technology; \nhowever, the low number of studies on some topics means \nthat the review’s conclusions should be considered provi -\nsional until further research can be conducted.\nAdditional considerations that may have affected the \ninsights attained during the literature review include the low \nnumber of studies considering confounding factors such as \n1 3\nPage 23 of 30 154",
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 23
+        },
+        {
+          "text": "real-world navigation using AR technologies. Studies of \nnavigation (augmented or not) in fully virtual environments \nwere excluded. To guide the review, we formulated the fol-\nlowing four research questions:\nRQ1. What is the current state-of-the-art of AR navigational \nassistance technologies?\nRQ2. What consensus knowledge has emerged about fac -\ntors related to the user experience and acceptance of \nthese technologies?\nRQ3. Does the research literature consistently show an ef -\nfect of AR navigational assistance on human wayfinding \nperformance?\nRQ4. What are the impacts of AR navigational assistance \non human perception, decision-making, behavior, and \ncognition?\nThe next section of the paper provides a background over -\nview of AR and its applications in the context of human \nwayfinding. We then present the methods for the current \nliterature review, followed by a comprehensive summary \nof our findings. The discussion section analyzes and inter -",
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 2
+        }
+      ],
+      "predicted_answer": "The review found that the evidence is too limited and heterogeneous to draw a firm conclusion about whether AR actually improves wayfinding performance.  Many of the studies examined had very small samples (often fewer than 10 participants) and varied widely in their AR configurations and task designs, which made it difficult to determine a consistent effect.  Consequently, the authors stated that the review’s conclusions on AR’s impact on wayfinding performance should be regarded as provisional until larger, more robust studies are conducted【UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf, page 23】.",
+      "predicted_sources": [
+        {
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 23
+        },
+        {
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 5
+        },
+        {
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 23
+        },
+        {
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 2
+        }
+      ],
+      "latency_seconds": 13.915,
+      "error": null
+    },
+    {
+      "id": "q09",
+      "question": "What makes the proposed AR navigation system 'adaptive' compared with conventional approaches?",
+      "type": "conceptual",
+      "answerable": true,
+      "reference_answer": "Users build the map at runtime: they place and link navigation nodes on the floor surface detected by ARCore plane detection while the application is running, instead of relying on a pre-modelled 3D environment, manual NavMesh modelling or fixed predefined paths. The resulting map is saved as JSON holding node positions, node type, connectivity data and marker GUIDs, and can be reloaded, edited and shared without rebuilding the system, which suits layouts that change frequently or lack floor plans.",
+      "source_hint": "Putra et al. 2025 - Sections 2.2 and 4.1",
+      "retrieved_chunks": [
+        {
+          "text": "real-world navigation using AR technologies. Studies of \nnavigation (augmented or not) in fully virtual environments \nwere excluded. To guide the review, we formulated the fol-\nlowing four research questions:\nRQ1. What is the current state-of-the-art of AR navigational \nassistance technologies?\nRQ2. What consensus knowledge has emerged about fac -\ntors related to the user experience and acceptance of \nthese technologies?\nRQ3. Does the research literature consistently show an ef -\nfect of AR navigational assistance on human wayfinding \nperformance?\nRQ4. What are the impacts of AR navigational assistance \non human perception, decision-making, behavior, and \ncognition?\nThe next section of the paper provides a background over -\nview of AR and its applications in the context of human \nwayfinding. We then present the methods for the current \nliterature review, followed by a comprehensive summary \nof our findings. The discussion section analyzes and inter -",
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 2
+        },
+        {
+          "text": "literature review, followed by a comprehensive summary \nof our findings. The discussion section analyzes and inter -\nprets these results in light of the four research questions \noutlined above. Finally, we conclude by identifying chal -\nlenges, trends, and recommendations for future directions \nin research and practice.\n2 Background\nThere are three foundational topics undergirding our \napproach in this review, which will be explained in the fol -\nlowing sub-sections. These include the technological state-\nof-the-art in current AR devices, concepts related to AR user \nexperience, and concepts related to guided wayfinding.\n2.1 AR navigation systems\nAugmented Reality is a technology that overlays computer-\ngenerated virtual content onto the real world, so that the \nvirtual information is aligned with real-world objects and \ncan be viewed in real time (Azuma 1997). The two main \napproaches to AR include the use of a screen with a real-",
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 2
+        },
+        {
+          "text": "details about their AR system configurations and technical \nimplementations, making it hard to draw conclusions about \noptimal approaches for different use cases or how these tech-\nnical configurations may have affected the study outcomes.\nFuture research should strive to expand the scope and \nrobustness of AR wayfinding studies, by simultaneously \nconsidering more variables in the same experiment, obtain-\ning larger and more diverse participant samples, and using \nmore complex and realistic wayfinding tasks. A central goal \nshould be to delve deeper into specific AR design and con -\nfiguration considerations, and to investigate the nuanced \ninterplay between different information modalities. In \nthe current literature review we had to rely on comparing \ndisparate studies that used distinct wayfinding tasks and \nprotocols to synthesize an overview perspective. Future \nresearchers can build upon the review’s conclusions by \ndirectly integrating the emerging variables of interest, for",
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 23
+        },
+        {
+          "text": "that information [10]. AR-based navigation systems provide an intuitive and immersive\napproach by presenting digital information integrated into the physical environment.\nHowever, many AR navigation methods rely on predefined landmarks, static 3D models,\nor complex SLAM-based localization [11]. These approaches can limit the ability to evolve\nand require significant pre-processing efforts [12].\nVarious approaches have been developed to improve indoor navigation based on\nAugmented Reality (AR). These include system design using Unified Modified Language\n(UML) [13], presenting a framework that should allow editing and viewing UML models\nin 3D space through Microsoft Hololens AR Glasses [14]. Marker-based tracking using QR",
+          "source": "information-16-00478.pdf",
+          "page": 2
+        }
+      ],
+      "predicted_answer": "I don’t have that information.",
+      "predicted_sources": [
+        {
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 2
+        },
+        {
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 2
+        },
+        {
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 23
+        },
+        {
+          "source": "information-16-00478.pdf",
+          "page": 2
+        }
+      ],
+      "latency_seconds": 14.628,
+      "error": null
+    },
+    {
+      "id": "q10",
+      "question": "Why does the semantics-based approach avoid geometry processing, and what does that gain?",
+      "type": "conceptual",
+      "answerable": true,
+      "reference_answer": "Conventional geometry-based network construction, such as visibility graphs, straight skeletons and generalised Voronoi graphs, is computing-intensive and time-consuming, struggles with irregular floor layouts, and produces networks that lack semantics. Because IFC already encodes space connectivity as relationships, the connectivity graph can instead be built by querying IFC-Graph, completing in 6.72 seconds for the Institute model and 18.97 seconds for the modified Dorm model, and it supports object-to-object pathfinding such as space-to-space, space-to-exit and space-to-facility queries.",
+      "source_hint": "Zhu et al. - Sections 1, 5.3, 6",
+      "retrieved_chunks": [
+        {
+          "text": "semantics need be considered. 159 \nThe semantics-based approach (i.e., semantics supplemented with  geometry) has been less 160 \ninvestigated. The only attempt that can be found in literature is from Ismail et al. [41], who used IFC 161 \nto construct a semantics-only labelled property graph and used the graph in indoor pathfinding. This 162 \nvery initial attempt experienced several problems related to  the navigation data model  defined, the 163 \nuse of semantics, the query for the shortest path, and the visualisation of the path  for navigation. In 164 \na related study by Khalili and Chua [40], even though they attempted to establish a graph data model 165 \n(GDM) through a topology -driven approach, they ended up with a geometry-based approach by 166 \nusing geometric information from boundary representation s (B-reps), and the derived topology 167 \ngraphs have accuracy issues. The lack of study on the semantics- based approach can probably be 168",
+          "source": "Manuscript_clean.pdf",
+          "page": 4
+        },
+        {
+          "text": "nearest fire suppression terminal?’ and ‘how many exits are available , and which is the nearest ?’. 151 \nThere are efforts to embed semantics information into the geometry-based topological networks, but 152 \nembedding and updating semantic information in geometric networks is time -consuming [9], even 153 \nthough the semantic information used is already quite limited. The most used semantic information 154 \nis limited to the name of entities and a small number of attributes, such as the unique identifier (ID) 155 \n[39], the material [40], the ‘FireExit’ attribute of doors [6], and the ‘PubliclyAccessible’ for spaces [24]. 156 \nIn short, the conventional geometry-based approach (i.e., geometry supplemented with semantics) 157 \nhas efficiency problems in network generation and updating, as well as functional problems when 158 \nsemantics need be considered. 159 \nThe semantics-based approach (i.e., semantics supplemented with  geometry) has been less 160",
+          "source": "Manuscript_clean.pdf",
+          "page": 4
+        },
+        {
+          "text": "geometric semantic information, such as  attributes, properties, and relationships . Several studies 57 \nhave explored the use of semantic information in the construction of indoor navigation network, such 58 \nas Zhou et al. [3], Lin and Lin [12], Xu et al. [16], Zhao et al. [17] and Teo and Cho [9]. However, these 59 \nstudies have  defined semantics from a navigation perspective . The semantic information used in 60 \nthese studies is limited to the type of entities (i.e., room, corridor) and some attributes of building 61 \nelements, which directly serve the navigation tasks. Most of the studies classify the building elements 62 \ninto ‘navigable’ and ‘non- navigable’ space . For example, Liu defined semantics with respect to 63 \nhorizontal and vertical options for movement in addition to the use of spaces for navigation (e.g., 64 \nvertical/horizontal connector, door, doorway, etc) [14]. IFC has defined far richer semantics than that, 65",
+          "source": "Manuscript_clean.pdf",
+          "page": 2
+        },
+        {
+          "text": "https://doi.org/10.1016/j.autcon.2022.104623. 716 \n[7] K. Lee, J. Lee, M.-P. Kwan, Location-based service using ontology-based semantic queries: 717 \nA study with a focus on indoor activities in a university context, Computers, Environment 718 \nand Urban Systems, 62 (2017) pp. 41-52, 719 \nhttps://doi.org/10.1016/j.compenvurbsys.2016.10.009. 720 \n[8] F.W. Fichtner, A.A. Diakité, S. Zlatanova, R. Voûte, Semantic enrichment of octree 721 \nstructured point clouds for multi-story 3D pathfinding, Transactions in GIS, 22 (1) (2018) 722 \npp. 233-248, https://doi.org/10.1111/tgis.12308. 723 \n[9] T.-A. Teo, K.-H. Cho, BIM-oriented indoor network model for indoor and outdoor 724 \ncombined route planning, Advanced Engineering Informatics, 30 (3) (2016) pp. 268-282, 725 \nhttps://doi.org/10.1016/j.aei.2016.04.007. 726 \n[10] J.O. Wallgrün, Autonomous Construction of Hierarchical Voronoi-Based Route Graph 727 \nRepresentations, in: C. Freksa, M. Knauff, B. Krieg-Brückner, B. Nebel, T. Barkowsky 728",
+          "source": "Manuscript_clean.pdf",
+          "page": 24
+        }
+      ],
+      "predicted_answer": "The manuscript explains that a semantics‑based indoor‑navigation model builds its graph from the semantic labels and relationships that are already encoded in the IFC model, rather than from the geometric shapes of the building.  \nBecause the graph is constructed only from IFC’s semantic attributes (e.g., entity type, identifiers, material, “FireExit”, “PubliclyAccessible”, etc.) it does not need to perform any geometric calculations such as computing distances, intersections or boundary representations. This “avoids geometry processing” (the graph is built from a semantics‑only labelled property graph)【Source: Manuscript_clean.pdf, page 4】.  \n\nThe gain of this approach is mainly efficiency:  \n* **Reduced computational cost** – no geometry‑based network generation or updating is required.  \n* **Simpler updates** – adding or changing semantic information can be done without re‑computing geometric relationships.  \n* **Better scalability** – the graph can be maintained and queried quickly, which is especially useful when semantics must be considered in navigation tasks【Source: Manuscript_clean.pdf, page 4】.",
+      "predicted_sources": [
+        {
+          "source": "Manuscript_clean.pdf",
+          "page": 4
+        },
+        {
+          "source": "Manuscript_clean.pdf",
+          "page": 4
+        },
+        {
+          "source": "Manuscript_clean.pdf",
+          "page": 2
+        },
+        {
+          "source": "Manuscript_clean.pdf",
+          "page": 24
+        }
+      ],
+      "latency_seconds": 10.766,
+      "error": null
+    },
+    {
+      "id": "q11",
+      "question": "Why is GPS unsuitable for indoor positioning?",
+      "type": "conceptual",
+      "answerable": true,
+      "reference_answer": "Satellite signals are heavily attenuated by building structure, reported as more than 1 dB per metre of structure, and indoor environments suffer multipath interference and a lack of direct line of sight to satellites, so accuracy degrades below what indoor guidance requires. Assisted GPS does not solve this because multipath remains a serious problem and signal strength stays too low in inner parts of buildings. Indoor systems therefore rely on alternatives such as Wi-Fi fingerprinting, Bluetooth, UWB, RFID, inertial navigation, SLAM or fiducial markers.",
+      "source_hint": "Putra et al. 2025 Section 1; Valizadeh et al. 2024 Section 1; Liu & Zhang 2023 Section 1",
+      "retrieved_chunks": [
+        {
+          "text": "especially in public buildings where many people do not have a thorough knowledge of the building, one of the main problems in \nindoor discharge is uncertainty of routes [12]. Few minutes of delay in navigation to safety exits can cause loss of lives [13]. \nIndoor localization and navigation is a challenge in the absence of global navigation satellite systems (GNSS) such as global \npositioning system (GPS). Although methods like assisted GPS (AGPS) are developed for places with limited line of sight to GPS \nsatellites, they are not practical for indoor positioning because the multipath problem is a serious challenge in buildings and signal \nstrength still remains too low for inner parts [14]. However, with the advent of sensors and smart phones indoor localization has \nbecome much affordable with acceptable accuracy. Based on these advanced technologies multiple approaches are developed and used",
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 2
+        },
+        {
+          "text": "obtain its absolute position and direction in the geodetic coordinate system by taking a picture of the node’s QR code and combining\nit with IMU fusion positioning. Through map edge information, indoor navigation and path planning can be achieved.\n1. INTRODUCTION\nIndividuals spend upwards of 70% of their time within indoor\nenvironments such as large parking facilities, airports, and lib-\nraries (Klepeis et al., 2001). Due to the unavailability of loca-\ntion services akin to outdoor Global Navigation Satellite Sys-\ntems (GNSS), users within these environments often struggle\nto determine their position and plan routes to their desired des-\ntinations. Addressing the challenge of indoor positioning has\nthe potential to significantly enhance both personal and profes-\nsional efficiency. A diverse range of indoor positioning techno-\nlogies are available for deployment within such environments;\nhowever, no industry-wide consensus exists regarding a stand-",
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 1
+        },
+        {
+          "text": "INDOOR POSITIONING AND NA VIGATION BASED ON QR CODE MAP\nR. K. Liu1,2, D. J. Zhang1,2∗\n1 School of Architecture and Urban Planning, Shenzhen University, Shenzhen, P.R. China\n2 Guandong Key Laboratory of Urban Informatics, Shenzhen University, Shenzhen, PR China\nKEY WORDS: QR code, Indoor Positioning, Control Points, Path Network, Vision/IMU Fusion\nABSTRACT:\nSolving the indoor positioning problem can effectively improve work and life efficiency. Outdoors, navigation and positioning\nmainly rely on satellites to provide global positioning and road network topology to constrain the direction of travel. Therefore, to\nachieve good indoor navigation and positioning, two things are needed: 1) continuous position acquisition and 2) an indoor road\nnetwork. Since the indoor environment is relatively stable, the geodetic coordinates of key indoor nodes can be obtained in advance",
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 1
+        },
+        {
+          "text": "suitable for enclosed areas, unlike open space-] mapping, which relies on technologies such\nas Global Positioning System (GPS), as satellite signals are attenuated by more than 1 dB\nper meter of structure [4]. Enclosed space mapping requires a specialized approach using\nsensors, spatial data processing, and artificial intelligence-based technologies.\nWhile GPS and Global Navigation Satellite Systems (GNSS) are effective for outdoor\nenvironments, their accuracy degrades indoors due to signal attenuation, multipath interfer-\nence, and lack of direct line of sight to the satellites. Previous studies have shown that GPS\nis unable to provide accurate indoor tracking because of factors unrelated to line-of-sight\nlimitations [1]. To handle such problems, many studies have been conducted to provide\nvarious alternative methods and approaches for indoor navigation [ 1,5,6]. Augmented\nReality (AR) is a technology that incorporates computer-generated images into a real en-",
+          "source": "information-16-00478.pdf",
+          "page": 2
+        }
+      ],
+      "predicted_answer": "GPS is unsuitable for indoor positioning because the satellite signals cannot reach indoor spaces effectively.  In buildings the signals are heavily attenuated (more than 1 dB per meter of structure) and the lack of a direct line‑of‑sight to the satellites, together with strong multipath reflections, results in very low signal strength and large positioning errors.  These factors make GPS and GNSS unreliable for indoor use.  \n\n*Sources: Indooraugmentedrealitypedestriannavigation_Heliyon.pdf, page 2; information‑16‑00478.pdf, page 2*",
+      "predicted_sources": [
+        {
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 2
+        },
+        {
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 1
+        },
+        {
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 1
+        },
+        {
+          "source": "information-16-00478.pdf",
+          "page": 2
+        }
+      ],
+      "latency_seconds": 16.962,
+      "error": null
+    },
+    {
+      "id": "q12",
+      "question": "What different techniques does the corpus describe for handling accumulated positioning drift?",
+      "type": "multi_hop",
+      "answerable": true,
+      "reference_answer": "Several distinct strategies appear. In the QR code map work, QR codes at surveyed locations act as control points, and scanning one yields an absolute pose that is fused with pedestrian dead reckoning through an extended Kalman filter, eliminating accumulated error. In the BIM and GIS evacuation work, Wi-Fi fingerprinting provides the initial fix while a complementary filter combining accelerometer, magnetometer and gyroscope data estimates heading without drift, since integrating gyroscope noise would otherwise become drift. The VIO benchmark takes a different angle, quantifying how much drift each commercial system accumulates rather than correcting it, and notes that SLAM features such as loop closure were deliberately disabled for fair comparison.",
+      "source_hint": "Liu & Zhang 2023 Section 2.3; Valizadeh et al. 2024 Section 4.2.1; Kim et al. 2022 Section 4",
+      "retrieved_chunks": [
+        {
+          "text": "As shown in Fig. 11, there are three ways that the application can compute the direction from which the user can choose: the \naccelerometer/magnetometer, the gyroscope or a combination of both. In order to evaluate the accuracy of location updating using \nthese methods, Equation (3) has been used. Table 4 compares the results of the location estimation accuracy of the three approaches \ndiscussed above, which are obtained in five distance intervals. \nδxy=\n̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅\nδ2\nx + δ2\ny\n√\n(3)  \n4.2.2. Path visualization in AR \nThe mobile AR visualization is used to show the exit path to the user. Fig. 15 presents the flowchart of the process that displays the \nright direction to the user. \nFig. 13. The acceleration sensor information for 20 steps and the results of the number of steps.  \nFig. 14. The complementary filter used to refine position estimation.",
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 12
+        },
+        {
+          "text": "√\n(1)  \nwhere Dj is the distance from the sample j, m is the number of APs, si is the signal strength received from the i th AP in the online phase, \nand sij is the signal strength of the i th AP stored in the j th sample. \nIn recent years, many methods are presented based on local fingerprinting and Wi-Fi to determine the location in indoor envi-\nronments. Each of these methods uses a different positioning algorithm and has different performance. Table 2 examines the types of \nFig. 7. The flowchart of offline database creation.  \nFig. 8. The general steps of driving user’s initial position.  \nTable 1 \nThe JSON arrays used in this research.  \nJSON array \nname \nDescription \nAllSamples Saves all Wi-Fis that are found along with their BSSID and RSSI for n times to calculate signal strength at one point. \nFinalTestArray Saves cumulative BSSID and RSSI values along with the number of repetitions of all unique Wi-Fis found in which RSSI values are outside the",
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 8
+        },
+        {
+          "text": "Figure 5. Fusion Track and error.\nFigure 6. QR code Decode Test.\nThe experiment involved 31 position states. Six QR codes were\nplaced along the path, all of which were affixed to pillars on one\nside of the path.The fusion results are shown in 5.\nAs shown in the figure, although the pedestrian dead reckoning\nmethod can continuously calculate position, the difficulty in de-\ntermining the initial state and the cumulative error may result in\na significant deviation in the calculated position. In contrast, the\nfusion positioning method that incorporates QR codes produces\na position closer to the true trajectory and effectively reduces\ncumulative error.\n0° 0°\n1m 0.15 0.08\n2m 0.25 0.21\n3m failed to decode\nTable 3. Position Error(m).\n0° 0°\n1m 1 4\n2m 2 4\n3m failed to decode\nTable 4. Angle Error(°).\n4. CONCLUSION\nIn order to achieve stable indoor positioning and navigation\nover long distances and extended periods of time, a simple and\neffective positioning method is needed. Since inertial navig-",
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 5
+        },
+        {
+          "text": "In this regard, pedestrian dead reckoning (PDR) method was used to update the user’s position. The calculation of the number of \nsteps while the user is walking can be obtained by using the information related to the accelerometer sensor. In order to increase the \naccuracy of the information related to acceleration and eliminate potential noises, the moving average filter has been used. There are \nTable 2 \nThe comparison of various approaches of fingerprinting indoor positioning.  \nWireless \ntechnology \nPositioning \nalgorithm \nAccuracy Precision Complexity Scalability Robustness Cost Reference \nWLAN RSS KNN 1.5–10 m 80 % within a radius of 1 \nm \nLow - high Good Good Low [54,55] \nWLAN RSS KNN + Clustering 1–3 m 90 % within a radius of 5 \nm \nMedium - \nhigh \nGood Good Low [56] \nWLAN RSS Probabilistic \nMethods \n1.5–3 m 80 % within a radius of 2 \nm \nMedium - \nhigh \nGood Good Low [57] \nWLAN RSS ANN 1.5–3 m 80 % within a radius of \n2.5 m \nLow Poor Good High [57,58]",
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 10
+        }
+      ],
+      "predicted_answer": "The corpus mentions three distinct approaches that can be used to mitigate the cumulative drift that naturally accumulates in pedestrian‑dead‑reckoning (PDR) based indoor positioning:\n\n| Technique | How it helps | Source |\n|-----------|--------------|--------|\n| **QR‑code‑based fusion** – The system periodically reads QR codes placed along the path and fuses those absolute position fixes with the PDR estimate. This “fusion positioning” corrects the accumulated error and keeps the trajectory close to the true path. | Reduces cumulative error (drift) | R_K_LIU_Indoor_positioning_and_navigation.pdf, page 5 |\n| **Complementary filter** – The complementary filter blends the high‑frequency inertial data (accelerometer/gyroscope) with lower‑frequency reference signals (e.g., magnetometer or Wi‑Fi) to smooth the pose estimate and suppress drift. | Refines the position estimate and limits drift | Indooraugmentedrealitypedestriannavigation_Heliyon.pdf, page 10 |\n| **Moving‑average filter** – Applied to the raw acceleration samples before step‑counting, this filter removes high‑frequency noise that can otherwise amplify drift in the step‑length estimation. | Reduces noise‑induced drift | Indooraugmentedrealitypedestriannavigation_Heliyon.pdf, page 10 |\n\nThese methods are presented as complementary strategies: the QR‑code fusion provides absolute corrections, while the complementary and moving‑average filters improve the quality of the inertial measurements that drive the PDR algorithm.",
+      "predicted_sources": [
+        {
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 12
+        },
+        {
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 8
+        },
+        {
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 5
+        },
+        {
+          "source": "Indooraugmentedrealitypedestriannavigation_Heliyon.pdf",
+          "page": 10
+        }
+      ],
+      "latency_seconds": 7.561,
+      "error": null
+    },
+    {
+      "id": "q13",
+      "question": "How do the corpus papers use QR codes differently from one another?",
+      "type": "multi_hop",
+      "answerable": true,
+      "reference_answer": "In the QR code map approach the codes are the backbone of the system: each is a surveyed control point and a node in an indoor road network, encoding ID, geodetic corner coordinates, floor, node type and adjacent edges, so they support both localization and path planning. In the NavARNode system QR codes play a narrower role as marker nodes carrying only a GUID, used to initialise the user's starting position or mark a destination, while the navigable path network itself comes from user-placed nodes and NavMesh.",
+      "source_hint": "Liu & Zhang 2023 Sections 2.1-2.2; Putra et al. 2025 Section 2.2 and Table 2",
+      "retrieved_chunks": [
+        {
+          "text": "analogy, if stable indoor positioning can be achieved through\nthe use of INS in conjunction with control points, and com-\nbined with an indoor path network map, it may be possible to\nrealize long-term, long-distance, and stable indoor navigation.\nQuick Response (QR) codes provide an effective means of stor-\ning absolute pose information, offering benefits such as ease of\nacquisition, simple deployment, and low cost. Utilizing vari-\nous encoding methods, QR codes are capable of representing a\ndiverse range of information and may also function as control\npoints within a scene. Furthermore, by considering indoor QR\ncodes as network nodes and their interrelationships as edges,\nfor the above indoor path network, if each node is a QR code,\nit can be called a QR code Map. The QR code information in-\ncludes but is not limited to ID, location, floor, features (stairs,\nelevators, corridors, etc.), adjacent edges, etc. The edge is com-\nposed of connected QR codes and its information includes but",
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 1
+        },
+        {
+          "text": "of information including, but not limited to: unique identific-\nation codes; three-dimensional corner position data referenced\nFigure 2. QR code Map.\nto a world coordinate system; floor-level data; node-type data;\nconnectivity data for linked edges; lists of typically reachable\nnodes; and positional offsets. Relationships between nodes\nare represented as edges corresponding to traversable pathways\nsuch as corridors. Edge data includes unique identification\ncodes; start and end nodes; length and width measurements;\nand centerline data. Table 1 presents an overview of QR code\nnode content, while Table 2 details edge content. QR codes are\ndeployed at each node within the indoor map network. Geo-\ndetic coordinates for corners may be obtained through tech-\nniques such as in situ measurement using a total station.\n2.2 Indoor Positioning Method Based on QR Codes\nQR codes are composed of black squares arranged in a square\ngrid on a white background. They can be detected and decoded",
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 2
+        },
+        {
+          "text": "QR codes are composed of black squares arranged in a square\ngrid on a white background. They can be detected and decoded\nby imaging devices for correct interpretation.A QR code con-\ntains position markers, alignment makers, the timing pattern\nThe International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences, Volume XLVIII-1/W2-2023 \nISPRS Geospatial Week 2023, 2–7 September 2023, Cairo, Egypt\nThis contribution has been peer-reviewed. \nhttps://doi.org/10.5194/isprs-archives-XLVIII-1-W2-2023-665-2023 | © Author(s) 2023. CC BY 4.0 License.\n \n666",
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 2
+        },
+        {
+          "text": "facilitates long-term, large-scale indoor navigation and\npositioning.\n• A design for an indoor map constructed using control\npoints. Control point data is encoded within Quick Re-\nsponse (QR) codes, which serve as nodes within the indoor\nmap network. Each QR code node functions both as a con-\ntrol point and as an information hub, providing accurate\nposition and posture data for sensor correction while also\nfacilitating navigation through the provision of node and\nedge information.\n2. METHOD\n2.1 Design and Construction of Indoor QR code map\nThe original indoor path network can be obtained through the\nindoor design plan. Indoor merchants, doors, intersections,\nlandmarks, elevators, stairs, etc. can be used as nodes of the\nindoor path network.\nNodes within the indoor map network encode a diverse range\nof information including, but not limited to: unique identific-\nation codes; three-dimensional corner position data referenced\nFigure 2. QR code Map.",
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 2
+        }
+      ],
+      "predicted_answer": "I don’t have that information.",
+      "predicted_sources": [
+        {
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 1
+        },
+        {
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 2
+        },
+        {
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 2
+        },
+        {
+          "source": "R_K_LIU_Indoor_positioning_and_navigation.pdf",
+          "page": 2
+        }
+      ],
+      "latency_seconds": 16.311,
+      "error": null
+    },
+    {
+      "id": "q14",
+      "question": "What is the retail price of a Microsoft HoloLens headset?",
+      "type": "negative",
+      "answerable": false,
+      "reference_answer": "Not answerable from the corpus. The systematic review names HoloLens as the most common AR headset brand but gives no price, and although the VIO benchmark does include a price table, it covers only ARKit, ARCore, the Intel T265 and the ZED 2. The system should state that it cannot find this rather than adapting a figure from that unrelated table.",
+      "source_hint": null,
+      "retrieved_chunks": [
+        {
+          "text": "relevant words (e.g., navigation vs. navigating) and closely \nrelated concepts that are often used interchangeably (e.g., \naugmented reality vs. mixed reality), while still keeping the \nsearch narrow enough to exclude the much broader litera -\nture on virtual reality. The term HoloLens (Microsoft Cor -\nporation HoloLens 2025) was included since it is the most \ncommonly used brand of AR headset. We consulted with \nan evidence synthesis librarian at our university to carefully \nformulate and apply this search string so that the review \nwould achieve an effective scope. The results as of Decem-\nber 2024 included 1,036 items from Scopus, 713 from Web \nof Science, 496 from IEEE Xplore, and 283 from the ACM \nDigital Library.\n1 3\nPage 5 of 30 154",
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 5
+        },
+        {
+          "text": "architecture designed to detect and classify user behaviors, \nsuch as local tasks, menu interactions, and visual searches, \nand to display AR guidance correspondingly. It is worth not-\ning that all studies conducted before 2015 exclusively used \ncustom platforms, with a noticeable shift towards the Unity \nand Vuforia Engines since 2018.\nthat such devices played a prominent role in the research \nliterature. However, in recent years transparent HMDs \n(“smart glasses”) have become more widely available and \nare beginning to occupy a larger share of AR projects. These \ndisplays provide a hands-free experience by incorporating \nsensors and cameras directly in the headset for environ -\nmental scanning and user interaction. They can also pro -\nvide sophisticated audio components to enhance the user’s \nsense of immersion. The papers that we reviewed included \n19 using Microsoft HoloLens, 4 using Google Glasses, and \n7 using custom-designed HMDs. This latter group is par -",
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 11
+        },
+        {
+          "text": "of the most common platforms for delivering AR content \nsince their commercial debut, largely due to the widespread \nownership of smartphones since the 2010s. Their preva -\nlence in AR research and development is attributable to the \nintegration of multiple sensors in these devices, providing \na ready-to-use solution for AR systems. The expanding \navailability of official and third-party SDKs and platform \nAPIs for smartphones has further simplified the develop -\nment of AR applications. Handheld devices do not have a \nmonopoly, however, and head-mounted displays account for \n1 3\n154 Page 20 of 30",
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 20
+        },
+        {
+          "text": "19 using Microsoft HoloLens, 4 using Google Glasses, and \n7 using custom-designed HMDs. This latter group is par -\nticularly notable, as early adopters such as Kerr et al. (2011) \ndesigned their own head-mounted systems, a process that \nhelped to spur the technology’s development and contrib -\nuted to today’s more sophisticated smart-glasses systems \n(Makimura et al. 2019; Truong-Allié et al. 2021).\n4.1.2 Software solutions\nThe choice of development platforms is essential for inte -\ngrating software development kits (SDKs) and application \nprogramming interfaces (APIs) to develop AR applications \nReferences Research Objective Method \n(sample size)\nDisplay \nDevice\nEnvironment Localization Visualiza-\ntion\n76 Romli et al. \n(2024)\nAR for indoor positioning and navigation apps Quantitative \n(10)\nMobile Indoor SLAM TBT, POI, \nmap\n77 Nendya et al. \n(2023)\nAR indoor navigation using NavMesh Quantitative \n(7)\nMobile Indoor Marker TBT, POI\n78 Qi et al. \n(2024)",
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 11
+        }
+      ],
+      "predicted_answer": "I don’t have that information.",
+      "predicted_sources": [
+        {
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 5
+        },
+        {
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 11
+        },
+        {
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 20
+        },
+        {
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 11
+        }
+      ],
+      "latency_seconds": 0.571,
+      "error": null
+    },
+    {
+      "id": "q15",
+      "question": "What accuracy does the corpus report for AR navigation guidance while driving a car?",
+      "type": "negative",
+      "answerable": false,
+      "reference_answer": "Not answerable from the corpus. The systematic review explicitly excluded non-pedestrian navigation such as driving, and no paper reports AR guidance accuracy for drivers. The VIO benchmark does include a vehicular test, but it measures visual-inertial odometry drift on a moving vehicle, not AR navigation guidance accuracy, so the system should decline rather than conflate the two.",
+      "source_hint": null,
+      "retrieved_chunks": [
+        {
+          "text": "lor AR guidance to an individual’s cognitive processes, or \nthat serve to reinforce skills-based navigation and learning \n(Moghaddam et al. 2021).\n6 Limitations and suggestions for future \nresearch\nMethodologically, this systematic literature review is con -\nstrained by its selection criteria; for example, it does not \naddress AR-supported navigation while driving an automo-\nbile or navigation within fully virtual environments. The \nexclusion of studies not written in English may have resulted \nin some relevant articles being overlooked. It should also be \nnoted that the number of included studies was somewhat \nthin in certain areas of our research interest. User experi -\nence issues were discussed in 49 of the included studies, \nbut there were only 29 studies in the review that addressed \nwayfinding performance, and only 18 that addressed spatial \ncognition. We did not find any studies at all addressing AR’s \nrelation to navigational decision-making processes or spe -",
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 23
+        },
+        {
+          "text": "real-world navigation using AR technologies. Studies of \nnavigation (augmented or not) in fully virtual environments \nwere excluded. To guide the review, we formulated the fol-\nlowing four research questions:\nRQ1. What is the current state-of-the-art of AR navigational \nassistance technologies?\nRQ2. What consensus knowledge has emerged about fac -\ntors related to the user experience and acceptance of \nthese technologies?\nRQ3. Does the research literature consistently show an ef -\nfect of AR navigational assistance on human wayfinding \nperformance?\nRQ4. What are the impacts of AR navigational assistance \non human perception, decision-making, behavior, and \ncognition?\nThe next section of the paper provides a background over -\nview of AR and its applications in the context of human \nwayfinding. We then present the methods for the current \nliterature review, followed by a comprehensive summary \nof our findings. The discussion section analyzes and inter -",
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 2
+        },
+        {
+          "text": "to paper maps. The five studies in our review that did not \nobserve superior wayfinding performance when using AR \nwere all inconclusive; that is, they found no significant dif -\nferences in the AR vs. non-AR conditions. The reasons for \nthis are unclear and it may be that the data was not extensive \nenough to confirm fine-grained statistical differences. Rehrl \net al. (2014) argued, however, that the AR navigational sys-\ntem that they evaluated might be inferior to a GPS-enhanced \ndigital map and to a voice-only guidance system.\nFour studies in our review used performance measures \nto evaluate the integration of interactive maps into AR sys -\ntems. Generally, there was a positive correlation between \nthe adoption of map interfaces and improved wayfinding \nperformance. In a study conducted by Hou and Tang (2020), \nthe integration of a 2D layout map into the AR interface \nresulted in participants completing navigation tasks faster",
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 16
+        },
+        {
+          "text": "map\nIndoor\nAR increases cogni-\ntive load\nRehrl et al. (2014) AR system to non-AR \naudio guidance and \nmobile map\nNASA TLX Out-\ndoor\nAR enhances cogni-\ntive map formation\nCalle-Bustos et al. \n(2021)\nAudio to visual Sketch map Indoor\nHuang et al. (2012) Handheld to mobile \nmap\nRoute memory Out-\ndoor\nLiu et al. (2021) HMD only Sketch map Indoor\nMunoz-Montoya et \nal. (2019)\nHandheld only Object recall task, spatial \nanxiety\nIndoor\nKumaran et al. \n(2023)\nHMD to no guidance Object recall task Indoor\nQiu et al. (2024a) Handheld to digital \nmap\nScene and orientation \nrecall\nOut-\ndoor\nAR increases percep-\ntion accuracy\nAnbaroglu et al. \n(2020)\nHandheld to mobile \nmap\nQuestionnaire Out-\ndoor\nKluge and Asche \n(2012)\nHandheld only Eye tracking, \nquestionnaire\nOut-\ndoor\nMakimura et al. \n(2019)\nVisual guidance only Questionnaire Out-\ndoor\nMöller et al. (2014) Video to handheld Questionnaire Indoor\nSan Martin and \nKildal (2021)\nVisual to audio NASA TLX, interview Indoor\nTruong-Allié et al. \n(2023)",
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 19
+        }
+      ],
+      "predicted_answer": "I don’t have that information. The review explicitly states that it does not address AR‑supported navigation while driving an automobile【Source: UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf, page 23】.",
+      "predicted_sources": [
+        {
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 23
+        },
+        {
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 2
+        },
+        {
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 16
+        },
+        {
+          "source": "UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf",
+          "page": 19
+        }
+      ],
+      "latency_seconds": 7.819,
+      "error": null
+    }
+  ]
+}
