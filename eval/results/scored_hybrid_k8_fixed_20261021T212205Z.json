@@ -1,0 +1,223 @@
+{
+  "scoring": {
+    "run_file": "run_hybrid_k8_fixed_20261021T205854Z.json",
+    "tag": "hybrid_k8_fixed",
+    "judge_model": "openai/gpt-oss-120b",
+    "generator_model": "openai/gpt-oss-20b",
+    "top_k": 8,
+    "max_chunk_chars": 1200,
+    "timestamp_utc": "20261021T212205Z",
+    "complete": false,
+    "stop_reason": "daily token limit reached: Error code: 429 - {'error': {'message': 'Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m2dhcs24eeqbtpb2j4z0xrdk` service tier `on_de",
+    "scored_count": 3,
+    "question_count": 15
+  },
+  "aggregate": {
+    "faithfulness": 1.0,
+    "answer_relevance": 1.0,
+    "context_precision": 0.292,
+    "refusal_accuracy": 1.0
+  },
+  "per_question": [
+    {
+      "id": "q01",
+      "type": "factual",
+      "answerable": true,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "context_precision": 0.375,
+      "refused": false,
+      "refusal_correct": true,
+      "claims": [
+        {
+          "claim": "Apple ARKit performed best in the benchmark",
+          "verdict": 1,
+          "reason": "The context states that Apple ARKit showed the most stable and high accuracy/consistency among the evaluated VIO systems, indicating it performed best."
+        },
+        {
+          "claim": "Apple ARKit achieved a drift error of roughly 0.02 m per second",
+          "verdict": 1,
+          "reason": "The context explicitly mentions a drift error of about 0.02 m per second for Apple ARKit."
+        }
+      ],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 1,
+          "reason": "Explicitly states Apple ARKit was the most stable/accurate and gives a drift error of about 0.02 m per second."
+        },
+        {
+          "index": 2,
+          "verdict": 0,
+          "reason": "Only citation listings; no performance or drift information."
+        },
+        {
+          "index": 3,
+          "verdict": 0,
+          "reason": "Bibliographic citation of the paper; does not contain the benchmark result."
+        },
+        {
+          "index": 4,
+          "verdict": 1,
+          "reason": "Concludes Apple ARKit performed best and reports a relative pose drift of about 0.02 m per second."
+        },
+        {
+          "index": 5,
+          "verdict": 0,
+          "reason": "Describes ARKit’s performance but gives a final drift error in meters (2.68 m), not the 0.02 m/s metric asked."
+        },
+        {
+          "index": 6,
+          "verdict": 0,
+          "reason": "Contains only reference entries; no relevant benchmark data."
+        },
+        {
+          "index": 7,
+          "verdict": 0,
+          "reason": "Further reference list without performance details."
+        },
+        {
+          "index": 8,
+          "verdict": 1,
+          "reason": "Provides quantitative table showing Apple ARKit’s Relative Pose Error of 0.02 m/s, matching the required drift figure."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "q02",
+      "type": "factual",
+      "answerable": true,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "context_precision": 0.125,
+      "refused": false,
+      "refusal_correct": true,
+      "claims": [
+        {
+          "claim": "The benchmark quantified accuracy by comparing the VIO‑generated trajectory to the known start‑to‑end displacement.",
+          "verdict": 1,
+          "reason": "Chunk 4 (page 6) describes that accuracy was evaluated by having the start and end points coincide and measuring the final drift error, which implies a comparison of the VIO trajectory to the known start‑to‑end displacement."
+        },
+        {
+          "claim": "In each experiment the start and end points of the motion were forced to coincide.",
+          "verdict": 1,
+          "reason": "Chunk 4 (page 6) explicitly states that the start and end points of the movement trajectories in all experiments were made to coincide."
+        },
+        {
+          "claim": "The remaining difference between the VIO trajectory and this reference was taken as the final drift error.",
+          "verdict": 1,
+          "reason": "Chunk 4 (page 6) says that after forcing start and end points to coincide, the final drift error was measured, i.e., the difference between the VIO trajectory and the reference."
+        }
+      ],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 0,
+          "reason": "Provides general background and abstract but does not describe how positioning accuracy was measured without motion capture."
+        },
+        {
+          "index": 2,
+          "verdict": 0,
+          "reason": "Discusses motivation and selection of VIO systems; no details on the measurement method without external motion capture."
+        },
+        {
+          "index": 3,
+          "verdict": 0,
+          "reason": "Describes a ground‑truth comparison using OptiTrack, which is an external motion capture system, not the method without it."
+        },
+        {
+          "index": 4,
+          "verdict": 1,
+          "reason": "Explicitly states that, to evaluate without external motion capture, start and end points were made to coincide and the final drift error (FDE) was measured."
+        },
+        {
+          "index": 5,
+          "verdict": 0,
+          "reason": "Details the OptiTrack ground‑truth setup, which involves external motion capture, not the alternative measurement approach."
+        },
+        {
+          "index": 6,
+          "verdict": 0,
+          "reason": "Summarizes results (relative pose error) but does not explain the methodology used to measure accuracy without motion capture."
+        },
+        {
+          "index": 7,
+          "verdict": 0,
+          "reason": "Provides general VIO background; no information about the specific benchmark measurement technique."
+        },
+        {
+          "index": 8,
+          "verdict": 0,
+          "reason": "Describes camera calibration procedures; unrelated to the method of measuring positioning accuracy without external motion capture."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "q03",
+      "type": "factual",
+      "answerable": true,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "context_precision": 0.375,
+      "refused": false,
+      "refusal_correct": true,
+      "claims": [
+        {
+          "claim": "The system combines Wi‑Fi fingerprinting for the initial indoor position estimate and AR‑based positioning to guide the user during evacuation.",
+          "verdict": 1,
+          "reason": "The context describes a Wi‑Fi fingerprinting approach used for initial position acquisition (chunk 3) and mentions an AR component for evacuation (chunks 3, 4, 7). Together they indicate the system uses Wi‑Fi fingerprinting and AR to guide users."
+        },
+        {
+          "claim": "Wi‑Fi fingerprinting is described in the “Positioning and navigation” section.",
+          "verdict": 1,
+          "reason": "Chunk 3 contains a subsection titled \"2) Positioning and navigation\" that details the Wi‑Fi fingerprinting method."
+        }
+      ],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 0,
+          "reason": "Provides only bibliographic metadata and abstract without mentioning the specific positioning methods."
+        },
+        {
+          "index": 2,
+          "verdict": 0,
+          "reason": "Contains only citation listings; no description of the positioning techniques used in the system."
+        },
+        {
+          "index": 3,
+          "verdict": 1,
+          "reason": "Describes the use of Wi‑Fi RSSI fingerprinting for the initial position, which is one of the two methods combined in the system."
+        },
+        {
+          "index": 4,
+          "verdict": 1,
+          "reason": "Mentions Wi‑Fi fingerprinting via WLAN sensors for acquiring the initial position, relevant to one of the required methods."
+        },
+        {
+          "index": 5,
+          "verdict": 0,
+          "reason": "A list of references; does not contain details about the positioning methods."
+        },
+        {
+          "index": 6,
+          "verdict": 0,
+          "reason": "Discusses BIM/GIS integration and network analysis, but no information on the positioning techniques."
+        },
+        {
+          "index": 7,
+          "verdict": 0,
+          "reason": "General literature review without specific mention of Wi‑Fi fingerprinting or PDR."
+        },
+        {
+          "index": 8,
+          "verdict": 1,
+          "reason": "Explicitly states that the system uses Wi‑Fi for indoor positioning together with accelerometer‑based pedestrian dead reckoning, covering both methods combined."
+        }
+      ],
+      "notes": []
+    }
+  ]
+}

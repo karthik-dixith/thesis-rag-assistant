@@ -30,10 +30,10 @@ def build_prompt(query, chunks):
     context = "\n\n".join(
         f"[Source: {c['source']}, page {c['page']}]\n{c['text']}" for c in chunks
     )
-    return f"""Answer the question using only the context below.
-If the answer is not in the context, say you don't have that information.
-Cite the page numbers you used.
-
+    return f"""Answer the question using only the context below. You may combine and compare
+information from different passages; an answer assembled from several passages
+is still grounded in the context. Only say you don't have that information if
+the context genuinely lacks what is needed. Cite the page numbers you used.
 Context:
 {context}
 
@@ -42,8 +42,8 @@ Question: {query}
 Answer:"""
 
 
-def answer(query):
-    chunks = retrieve(query)
+def answer(query, k =TOP_K):
+    chunks = retrieve(query, k)
     prompt = build_prompt(query, chunks)
     response = _client.chat.completions.create(
         model=LLM_MODEL,
