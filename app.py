@@ -7,7 +7,9 @@ try:
 except Exception:
     pass
 
-from rag import answer
+from hybrid import answer
+
+TOP_K = 8
 
 st.set_page_config(page_title="Thesis RAG Assistant", page_icon="📄")
 st.title("Thesis RAG Assistant")
@@ -44,7 +46,7 @@ if question:
 
     with st.chat_message("assistant"):
         with st.spinner("Searching the papers..."):
-            text, sources = answer(question)
+            text, sources = answer(question, TOP_K)
         cited = text + "\n\n**Sources:**\n" + "\n".join(
             f"- {s['source']} (page {s['page']})" for s in sources
         )
