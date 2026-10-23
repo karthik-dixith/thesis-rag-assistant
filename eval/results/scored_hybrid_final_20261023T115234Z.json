@@ -1,0 +1,869 @@
+{
+  "scoring": {
+    "run_file": "run_hybrid_final_20261023T114920Z.json",
+    "tag": "hybrid_final",
+    "judge_model": "openai/gpt-oss-120b",
+    "generator_model": "openai/gpt-oss-20b",
+    "top_k": 4,
+    "max_chunk_chars": 1200,
+    "timestamp_utc": "20261023T115234Z",
+    "complete": true,
+    "stop_reason": null,
+    "scored_count": 15,
+    "question_count": 15
+  },
+  "aggregate": {
+    "faithfulness": 0.721,
+    "answer_relevance": 0.923,
+    "context_precision": 0.481,
+    "refusal_accuracy": 0.867
+  },
+  "per_question": [
+    {
+      "id": "q01",
+      "type": "factual",
+      "answerable": true,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "context_precision": 0.25,
+      "refused": false,
+      "refusal_correct": true,
+      "claims": [
+        {
+          "claim": "Apple ARKit performed best in the benchmark",
+          "verdict": 1,
+          "reason": "The context states that Apple ARKit showed the most stable and high accuracy/consistency among the evaluated VIO sensors."
+        },
+        {
+          "claim": "Apple ARKit achieved a drift error of roughly 0.02 m per second",
+          "verdict": 1,
+          "reason": "The context specifies that the relative pose error was a drift error of about 0.02 m per second for Apple ARKit."
+        }
+      ],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 1,
+          "reason": "Explicitly states that Apple ARKit was the most stable and accurate VIO system and gives the drift error as about 0.02 m per second, directly answering the question."
+        },
+        {
+          "index": 2,
+          "verdict": 0,
+          "reason": "Contains only citation references unrelated to the benchmark results; no information about which system performed best or its drift error."
+        },
+        {
+          "index": 3,
+          "verdict": 0,
+          "reason": "Provides bibliographic metadata for the benchmark paper but does not include any performance details needed to answer the question."
+        },
+        {
+          "index": 4,
+          "verdict": 0,
+          "reason": "Lists additional references without any data on system performance or drift error; therefore not relevant."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "q02",
+      "type": "factual",
+      "answerable": true,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "context_precision": 0.25,
+      "refused": false,
+      "refusal_correct": true,
+      "claims": [
+        {
+          "claim": "The benchmark evaluated each VIO system by ensuring that the start and end points of every recorded trajectory were the same.",
+          "verdict": 1,
+          "reason": "Chunk 4 states that the start and end points of the movement trajectories in all experiments were made to coincide."
+        },
+        {
+          "claim": "The benchmark then computed the final drift error between the VIO‑estimated path and the known start‑to‑end displacement.",
+          "verdict": 1,
+          "reason": "Chunk 4 indicates that the final drift error was measured after aligning start and end points."
+        },
+        {
+          "claim": "This approach allowed the authors to assess positioning accuracy without relying on an external motion‑capture system.",
+          "verdict": 1,
+          "reason": "Chunk 4 explicitly says the evaluation was performed without an external motion capture system."
+        }
+      ],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 0,
+          "reason": "Chunk 1 only provides general background about VIO systems and does not describe how positioning accuracy was measured without external motion capture."
+        },
+        {
+          "index": 2,
+          "verdict": 0,
+          "reason": "Chunk 2 discusses motivation and selection of VIO platforms but contains no details on the measurement method used in the benchmark."
+        },
+        {
+          "index": 3,
+          "verdict": 0,
+          "reason": "Chunk 3 describes a ground‑truth comparison using an OptiTrack motion‑capture system, which is the opposite of measuring without external motion capture."
+        },
+        {
+          "index": 4,
+          "verdict": 1,
+          "reason": "Chunk 4 explicitly states that, to evaluate performance without external motion capture, the start and end points were made to coincide and the final drift error (FDE) was measured, matching the reference answer."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "q03",
+      "type": "factual",
+      "answerable": true,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "context_precision": 0.5,
+      "refused": false,
+      "refusal_correct": true,
+      "claims": [
+        {
+          "claim": "The system merges Wi‑Fi fingerprinting with BIM‑ and GIS‑based indoor navigation.",
+          "verdict": 1,
+          "reason": "The article describes a system that uses Wi‑Fi fingerprinting for initial positioning and BIM/GIS for building network creation and route computation, indicating a merger of these technologies."
+        },
+        {
+          "claim": "Wi‑Fi fingerprinting uses RSSI values from WLAN sensors to locate the user’s starting point.",
+          "verdict": 1,
+          "reason": "Chunk 3 states that a Wi‑Fi fingerprinting approach employs RSSI measurements from WLAN sensors to acquire the user’s initial position."
+        },
+        {
+          "claim": "BIM‑ and GIS‑based indoor navigation leverages the building network derived from the BIM model.",
+          "verdict": 1,
+          "reason": "Chunk 3 explains that the 2D map is converted to BIM, which is then exported to a GIS environment to create a building network for spatial analysis."
+        },
+        {
+          "claim": "BIM‑ and GIS‑based indoor navigation leverages GIS analysis to compute the evacuation route.",
+          "verdict": 1,
+          "reason": "The text indicates that after obtaining the initial position, the server uses the building network and GIS spatial analysis to compute the exit path."
+        }
+      ],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 0,
+          "reason": "The excerpt only contains bibliographic metadata and general keywords; it does not mention any positioning methods."
+        },
+        {
+          "index": 2,
+          "verdict": 0,
+          "reason": "This chunk lists citation references and does not provide details about the positioning techniques used in the system."
+        },
+        {
+          "index": 3,
+          "verdict": 1,
+          "reason": "Describes the use of Wi‑Fi RSSI fingerprinting for acquiring the user's initial position, which is one of the two methods combined in the system."
+        },
+        {
+          "index": 4,
+          "verdict": 1,
+          "reason": "Mentions Wi‑Fi fingerprinting based on WLAN RSSI for initial positioning, providing relevant information about one of the two combined methods."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "q04",
+      "type": "factual",
+      "answerable": true,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "context_precision": 0.5,
+      "refused": false,
+      "refusal_correct": true,
+      "claims": [
+        {
+          "claim": "The AR evacuation application was evaluated through a usability study that employed the System Usability Scale (SUS) questionnaire.",
+          "verdict": 1,
+          "reason": "Chunk 1 states the method was evaluated with a sample audience using a SUS score, indicating a SUS-based usability study."
+        },
+        {
+          "claim": "Participants completed the SUS in the evaluation.",
+          "verdict": 1,
+          "reason": "The presence of a SUS score (70.59) in the context implies that participants responded to the SUS questionnaire."
+        },
+        {
+          "claim": "The resulting SUS score was 70.59.",
+          "verdict": 1,
+          "reason": "Chunk 1 explicitly reports a SUS score of 70.59."
+        },
+        {
+          "claim": "This score indicates acceptable usability for the application.",
+          "verdict": 1,
+          "reason": "Chunk 1 describes the SUS score of 70.59 as yielding \"acceptable results,\" supporting the interpretation of acceptable usability."
+        }
+      ],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 1,
+          "reason": "Mentions evaluation with SUS and provides the exact score of 70.59, directly matching the reference answer."
+        },
+        {
+          "index": 2,
+          "verdict": 0,
+          "reason": "Describes other AR evacuation systems and does not mention SUS evaluation or the score."
+        },
+        {
+          "index": 3,
+          "verdict": 0,
+          "reason": "Discusses usability testing using HARUS, not SUS, and gives no score information."
+        },
+        {
+          "index": 4,
+          "verdict": 1,
+          "reason": "States that the questionnaire was designed in SUS format, confirming the evaluation method used in the reference answer."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "q05",
+      "type": "factual",
+      "answerable": true,
+      "faithfulness": 0.833,
+      "answer_relevance": 1.0,
+      "context_precision": 0.75,
+      "refused": false,
+      "refusal_correct": true,
+      "claims": [
+        {
+          "claim": "The authors created a new IFC relationship entity because the existing IFC model does not provide any semantic links for vertical storey‑to‑storey connectivity.",
+          "verdict": 1,
+          "reason": "The context states that IFC has not specified any relationships for vertical storey-to-storey connection, leading the authors to define a new relationship entity."
+        },
+        {
+          "claim": "Without such links, a building‑wide connectivity graph cannot be built.",
+          "verdict": 1,
+          "reason": "The context says the lack of vertical connection impedes the creation of a building-wide connectivity graph."
+        },
+        {
+          "claim": "This hampers indoor navigation that requires stair, ramp, lift, or escalator connections between floors.",
+          "verdict": 0,
+          "reason": "The context does not explicitly state that indoor navigation is hampered; it only mentions the impediment to building-wide connectivity graph creation."
+        },
+        {
+          "claim": "They defined a new relationship entity called IfcRelConnectsSpace (see Fig. 3).",
+          "verdict": 1,
+          "reason": "The context explicitly mentions the new relationship entity named IfcRelConnectsSpace and refers to Figure 3."
+        },
+        {
+          "claim": "This entity links vertical connecting elements to spaces on different storeys.",
+          "verdict": 1,
+          "reason": "The context describes the entity as linking vertical connecting elements (stair, ramp, lift, escalator) with spaces on different storeys."
+        },
+        {
+          "claim": "This enables vertical connectivity in the indoor navigation data model.",
+          "verdict": 1,
+          "reason": "The context indicates that IfcRelConnectsSpace forms part of the indoor navigation data model and defines how vertical connections can be established."
+        }
+      ],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 1,
+          "reason": "Explains that IFC lacks a vertical storey‑to‑storey relationship, which prevents a building‑wide connectivity graph, and states that the authors created a new entity named IfcRelConnectsSpace to link vertical elements (stairs, ramps, lifts, escalators) to spaces on different storeys."
+        },
+        {
+          "index": 2,
+          "verdict": 1,
+          "reason": "Mentions the new IfcRelConnectsSpace entity and its role in establishing vertical connections, supporting the need for a new relationship to build the indoor navigation data model."
+        },
+        {
+          "index": 3,
+          "verdict": 0,
+          "reason": "Discusses door size and pathfinding details unrelated to the vertical connectivity issue or the new IFC relationship entity."
+        },
+        {
+          "index": 4,
+          "verdict": 1,
+          "reason": "Notes that IFC does not provide vertical connection semantics and that the authors developed a customized relationship entity called IfcRelConnectsSpace to address this gap."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "q06",
+      "type": "factual",
+      "answerable": true,
+      "faithfulness": 0.667,
+      "answer_relevance": 1.0,
+      "context_precision": 0.25,
+      "refused": false,
+      "refusal_correct": true,
+      "claims": [
+        {
+          "claim": "The NavARNode app establishes the user’s starting position by having the user scan a QR code that is physically placed in the environment.",
+          "verdict": 0,
+          "reason": "The context describes scanning QR codes for navigation but does not explicitly state that this scan is used to establish the user's starting position."
+        },
+        {
+          "claim": "When the user taps the “Marker” button, a list of available destinations (each linked to a QR code) is shown.",
+          "verdict": 1,
+          "reason": "Chunk 2 explicitly says that tapping the “Marker” button shows a list of available destinations using QR codes."
+        },
+        {
+          "claim": "Selecting one opens the scanner interface.",
+          "verdict": 1,
+          "reason": "Chunk 2 states that upon selecting a marker, the user is directed to the scanner interface."
+        },
+        {
+          "claim": "The app uses the scanned QR code to locate the user’s current position.",
+          "verdict": 0,
+          "reason": "The context mentions scanning a QR code but does not directly say the app uses it to locate the user's current position."
+        },
+        {
+          "claim": "This method is described in the navigation workflow on page 8.",
+          "verdict": 1,
+          "reason": "Chunk 2 (page 8) provides the navigation workflow description that includes the marker button and QR‑code scanning steps."
+        },
+        {
+          "claim": "It is noted as the current approach for determining the starting position (page 13).",
+          "verdict": 1,
+          "reason": "Chunk 1 (page 13) discusses code scanning to determine the starting position, indicating it is the approach used."
+        }
+      ],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 0,
+          "reason": "Mentions code scanning in general but does not specify that NavARNode uses QR codes with GUIDs or the ZXing.Net library to set the starting position."
+        },
+        {
+          "index": 2,
+          "verdict": 1,
+          "reason": "Describes the NavARNode workflow where the user selects a marker, scans a printed QR code, and initializes position, directly supporting the reference answer."
+        },
+        {
+          "index": 3,
+          "verdict": 0,
+          "reason": "Only references a figure label without providing any information about how the starting position is determined."
+        },
+        {
+          "index": 4,
+          "verdict": 0,
+          "reason": "Describes the initial screen and building selection flow but does not mention QR codes, GUIDs, or the scanning process used to set the starting position."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "q07",
+      "type": "factual",
+      "answerable": true,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "context_precision": 0.75,
+      "refused": false,
+      "refusal_correct": true,
+      "claims": [
+        {
+          "claim": "In the QR‑code‑map approach a mobile device first detects the QR code in the camera image.",
+          "verdict": 1,
+          "reason": "Chunk 2 describes using the ZBar library for QR‑code detection and interpretation, indicating that the device first detects the QR code in the camera image."
+        },
+        {
+          "claim": "From the image it extracts the pixel coordinates of the four corner points (u_a,v_a),(u_b,v_b),(u_c,v_c),(u_d,v_d).",
+          "verdict": 1,
+          "reason": "Chunk 2 explicitly states that QR‑code detection can obtain the pixel coordinates of the four corner points of the QR code on the image as (ua,va), (ub,vb), (uc,vc), (ud,vd)."
+        },
+        {
+          "claim": "The QR code itself encodes the geodetic coordinates of those same four corners (r_{w_a},r_{w_b},r_{w_c},r_{w_d}) together with an ID and other node attributes.",
+          "verdict": 1,
+          "reason": "Chunk 2 notes that decoding the QR code yields the real coordinates of the four corners in the geodetic coordinate system (r w a, r w b, r w c, r w d). Chunk 3 and Table 1 (Chunk 4) list ID and other attributes as part of the QR‑code node information."
+        },
+        {
+          "claim": "With the 2‑D image points and the corresponding 3‑D world points, the device solves a Perspective‑n‑Point (PnP) problem (using, e.g., the P3P method) to compute the camera pose—its position and orientation—in the geodetic coordinate system.",
+          "verdict": 1,
+          "reason": "Chunk 2 says that with four 2D‑3D point pairs the camera pose can be computed by solving the PnP problem, and mentions the P3P method for this purpose."
+        },
+        {
+          "claim": "Thus, by scanning a QR code the device obtains the QR code’s ID, its precise geodetic corner coordinates, and from these it computes its own pose via PnP.",
+          "verdict": 1,
+          "reason": "Chunk 3 and Table 1 (Chunk 4) state that QR codes contain an ID and geodetic coordinates; combined with the PnP process described in Chunk 2, this supports the claim that scanning yields the ID, coordinates, and enables pose computation."
+        }
+      ],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 0,
+          "reason": "Describes only the user interface and AR overlay; does not provide details about the pose information obtained or the computation method."
+        },
+        {
+          "index": 2,
+          "verdict": 1,
+          "reason": "Explicitly explains that scanning yields pixel coordinates of the four QR corners, decodes their real‑world geodetic coordinates, forms 2D‑3D point pairs and solves a PnP (P3P) problem to recover camera pose, matching the reference answer."
+        },
+        {
+          "index": 3,
+          "verdict": 1,
+          "reason": "States that QR codes store absolute pose information (position, orientation) and can act as control points, providing the needed information about what is obtained from a scan, though it lacks the detailed computation steps."
+        },
+        {
+          "index": 4,
+          "verdict": 1,
+          "reason": "Lists the geodetic coordinates of QR code corners (position) and mentions EKF‑based fusion with PDR, supporting both the obtained information and the processing pipeline described in the reference answer."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "q08",
+      "type": "conceptual",
+      "answerable": true,
+      "faithfulness": 0.25,
+      "answer_relevance": 1.0,
+      "context_precision": 0.0,
+      "refused": false,
+      "refusal_correct": true,
+      "claims": [
+        {
+          "claim": "The systematic review found that the evidence on whether AR actually improves wayfinding performance is limited and inconclusive.",
+          "verdict": 0,
+          "reason": "The context notes that only 29 studies examined wayfinding performance, indicating limited evidence, but it does not explicitly state that the evidence is inconclusive."
+        },
+        {
+          "claim": "Only 29 of the studies included in the review examined wayfinding performance.",
+          "verdict": 1,
+          "reason": "Chunk 3 explicitly says, \"there were only 29 studies in the review that addressed wayfinding performance.\""
+        },
+        {
+          "claim": "The results across those studies were inconsistent.",
+          "verdict": 0,
+          "reason": "The context does not provide any information about the consistency or inconsistency of the results."
+        },
+        {
+          "claim": "There is no clear consensus that AR assistance consistently enhances performance.",
+          "verdict": 0,
+          "reason": "The context does not mention a consensus or lack thereof regarding AR's effect on performance."
+        }
+      ],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 0,
+          "reason": "Only states the review's research questions and outlines the paper structure; it does not provide any findings about indoor vs outdoor performance, modality effectiveness, overview maps, or cognitive load."
+        },
+        {
+          "index": 2,
+          "verdict": 0,
+          "reason": "Provides a generic claim that AR can enhance wayfinding, but lacks the specific conclusions (mixed results, indoor vs outdoor, visual vs auditory, overview maps, cognitive load) needed for the reference answer."
+        },
+        {
+          "index": 3,
+          "verdict": 0,
+          "reason": "Discusses limitations and the number of studies addressing wayfinding performance, but does not present the specific results regarding environment type, cue modality, map inclusion, or cognitive effects."
+        },
+        {
+          "index": 4,
+          "verdict": 0,
+          "reason": "Focuses on future research directions and methodological considerations without reporting the concrete findings about AR's impact on wayfinding performance."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "q09",
+      "type": "conceptual",
+      "answerable": true,
+      "faithfulness": 0.333,
+      "answer_relevance": 1.0,
+      "context_precision": 0.25,
+      "refused": false,
+      "refusal_correct": true,
+      "claims": [
+        {
+          "claim": "The system is described as adaptive because it does not rely on a pre‑built, static map.",
+          "verdict": 0,
+          "reason": "The provided context includes the paper title \"Adaptive AR Navigation\" but does not state that the system avoids a pre‑built static map."
+        },
+        {
+          "claim": "The system constructs a real‑time map of the indoor environment by strategically placing nodes and using marker‑localization techniques.",
+          "verdict": 1,
+          "reason": "Chunk 2’s title and citation explicitly mention \"Real‑Time Mapping for Indoor Environment Using Node Placement and Marker Localization,\" directly supporting this claim."
+        },
+        {
+          "claim": "This allows the AR guidance to dynamically adjust to changes in the environment (e.g., new obstacles, layout changes) and continuously update the navigation path.",
+          "verdict": 0,
+          "reason": "The context does not contain any statement about dynamic adjustment to environmental changes or continuous path updates."
+        },
+        {
+          "claim": "Conventional approaches typically use fixed maps or pre‑recorded data that cannot respond to such changes.",
+          "verdict": 0,
+          "reason": "No information in the provided excerpts describes the characteristics of conventional approaches."
+        },
+        {
+          "claim": "The system combines Wi‑Fi fingerprinting with pedestrian dead‑reckoning (PDR) to achieve high accuracy and robustness.",
+          "verdict": 1,
+          "reason": "Chunk 4 explicitly states that a mixture of Wi‑Fi fingerprinting and pedestrian dead reckoning (PDR) is used to achieve relatively high accuracy and high robustness."
+        },
+        {
+          "claim": "This combination further enables the navigation to adapt to real‑world variations in signal strength and user movement.",
+          "verdict": 0,
+          "reason": "While the context mentions high accuracy and robustness, it does not specifically claim that the combination enables adaptation to signal‑strength or user‑movement variations."
+        }
+      ],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 0,
+          "reason": "Provides a literature review overview; does not describe the runtime map building or node placement that defines the system's adaptiveness."
+        },
+        {
+          "index": 2,
+          "verdict": 1,
+          "reason": "Title and citation mention real‑time mapping using node placement and marker localization, directly indicating the system builds maps at runtime, which is the key adaptive feature."
+        },
+        {
+          "index": 3,
+          "verdict": 0,
+          "reason": "Discusses indoor vs. outdoor AR effectiveness; no information about the adaptive runtime mapping approach."
+        },
+        {
+          "index": 4,
+          "verdict": 0,
+          "reason": "Describes a BIM‑based emergency evacuation system using Wi‑Fi and PDR; unrelated to the runtime node‑based map creation that makes the system adaptive."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "q10",
+      "type": "conceptual",
+      "answerable": true,
+      "faithfulness": 0.714,
+      "answer_relevance": 1.0,
+      "context_precision": 0.75,
+      "refused": false,
+      "refusal_correct": true,
+      "claims": [
+        {
+          "claim": "The semantics‑based approach builds the connectivity graph directly from the IFC data model by querying the IFC‑Graph rather than by reconstructing the geometry of the building.",
+          "verdict": 1,
+          "reason": "Chunk 1 (lines 671‑672) states that the majority of the connectivity graph was established by querying IFC‑Graph, avoiding geometry processing."
+        },
+        {
+          "claim": "The graph is created from the semantic relationships that are already encoded in the IFC file, so the expensive step of interpreting boundary‑representation (B‑rep) geometry and computing adjacency is skipped.",
+          "verdict": 1,
+          "reason": "The context notes that querying IFC‑Graph avoids computing‑intensive geometry processing (Chunk 1, 671‑672) and that the semantics‑based approach uses semantic information from IFC (Chunk 1, 673‑675), implying reliance on encoded semantic relationships rather than B‑rep geometry."
+        },
+        {
+          "claim": "Because the vertical links between storeys are still added with a custom IFC relationship (IfcRelConnectsSpace) the approach does not need to derive those links from geometry either.",
+          "verdict": 1,
+          "reason": "Chunk 4 (lines 666‑668) describes the development of a custom relationship entity, IfcRelConnectsSpace, to provide vertical connection information, indicating geometry is not used for these links."
+        },
+        {
+          "claim": "The connectivity graph can be built in seconds instead of the minutes or hours required for geometry‑based construction.",
+          "verdict": 0,
+          "reason": "The context mentions building the graph in seconds (Chunk 1, 671‑672) but does not provide a comparison stating that geometry‑based construction takes minutes or hours."
+        },
+        {
+          "claim": "The semantic graph allows direct navigation between any two IFC entities, which is difficult with a purely geometry‑based network.",
+          "verdict": 1,
+          "reason": "Chunk 1 (lines 673‑675) explicitly says the semantics‑based approach enables object‑to‑object pathfinding, which is difficult for the conventional geometry‑based approach."
+        },
+        {
+          "claim": "Semantic information can be added or updated without re‑processing the geometry, enabling tailored scenarios such as finding the nearest fire‑suppression terminal or counting the available exits.",
+          "verdict": 1,
+          "reason": "Chunk 3 (lines 152‑153) notes that embedding and updating semantic information in geometric networks is time‑consuming, and Chunk 1 (lines 677‑678) gives examples of tailored pathfinding scenarios, supporting the claim."
+        },
+        {
+          "claim": "Embedding or updating semantics in a geometry‑based network is time‑consuming, whereas the semantics‑based approach keeps the graph lightweight and easier to maintain.",
+          "verdict": 0,
+          "reason": "The context states that updating semantics in geometry‑based networks is time‑consuming (Chunk 3, 152‑153) but does not explicitly claim that the semantics‑based approach results in a lightweight or easier‑to‑maintain graph."
+        }
+      ],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 1,
+          "reason": "Explicitly states that querying IFC‑Graph avoids computing‑intensive geometry processing, builds the graph in seconds, and enables object‑to‑object pathfinding, matching the reference answer."
+        },
+        {
+          "index": 2,
+          "verdict": 0,
+          "reason": "Discusses limited research on semantics‑based approaches and issues with geometry‑based methods but does not explain why the semantics‑based approach avoids geometry processing or the benefits gained."
+        },
+        {
+          "index": 3,
+          "verdict": 1,
+          "reason": "Highlights efficiency problems and time‑consumption of geometry‑based networks and the difficulty of embedding semantics, supporting the claim that geometry‑based construction is costly and motivating the semantics‑based gain."
+        },
+        {
+          "index": 4,
+          "verdict": 1,
+          "reason": "Describes the semantics‑based approach as different from geometry‑based, notes that most of the graph is built by querying IFC‑Graph which avoids geometry processing, aligning directly with the reference answer."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "q11",
+      "type": "conceptual",
+      "answerable": true,
+      "faithfulness": 0.8,
+      "answer_relevance": 1.0,
+      "context_precision": 0.75,
+      "refused": false,
+      "refusal_correct": true,
+      "claims": [
+        {
+          "claim": "GPS is unsuitable for indoor positioning because the satellite signals cannot penetrate building structures.",
+          "verdict": 0,
+          "reason": "The context mentions signal attenuation and low strength indoors, but does not state that satellite signals cannot penetrate building structures."
+        },
+        {
+          "claim": "The signals are heavily attenuated (more than 1 dB per meter of wall or floor material).",
+          "verdict": 1,
+          "reason": "Both chunks explicitly note that satellite signals are attenuated by more than 1 dB per meter of structure."
+        },
+        {
+          "claim": "When GPS signals reach an indoor receiver, they are reflected by interior surfaces, producing severe multipath interference.",
+          "verdict": 1,
+          "reason": "The context cites multipath interference as a serious indoor problem, implying reflections cause it."
+        },
+        {
+          "claim": "Lack of direct line‑of‑sight to the satellites contributes to very low signal strength and large positioning errors.",
+          "verdict": 1,
+          "reason": "The context states that indoor accuracy degrades due to lack of direct line‑of‑sight, among other factors."
+        },
+        {
+          "claim": "These factors make GPS ineffective for accurate indoor tracking.",
+          "verdict": 1,
+          "reason": "The context describes GPS as impractical or unable to provide accurate indoor tracking."
+        }
+      ],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 1,
+          "reason": "Explicitly states that AGPS is impractical indoors because multipath remains a serious challenge and signal strength is too low, matching the reference answer's points about multipath and weak signals."
+        },
+        {
+          "index": 2,
+          "verdict": 1,
+          "reason": "Provides the key reasons: signal attenuation (>1 dB/m), multipath interference, and lack of line‑of‑sight, directly supporting the reference answer."
+        },
+        {
+          "index": 3,
+          "verdict": 1,
+          "reason": "Notes that GPS signals cannot easily penetrate enclosed spaces, indicating why GPS is unsuitable indoors, which aligns with the reference answer's explanation."
+        },
+        {
+          "index": 4,
+          "verdict": 0,
+          "reason": "Describes indoor localization techniques and the use of markers but does not explain why GPS itself is unsuitable (no mention of attenuation, multipath, or LOS issues)."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "q12",
+      "type": "multi_hop",
+      "answerable": true,
+      "faithfulness": 0.778,
+      "answer_relevance": 1.0,
+      "context_precision": 0.5,
+      "refused": false,
+      "refusal_correct": true,
+      "claims": [
+        {
+          "claim": "A complementary filter fuses accelerometer, magnetometer and gyroscope data to estimate absolute orientation while cancelling drift.",
+          "verdict": 1,
+          "reason": "Chunk 2 explicitly describes a complementary filter that integrates accelerometer, magnetometer and gyroscope sensors to estimate absolute orientation without drift error."
+        },
+        {
+          "claim": "The statement about the complementary filter is sourced from Indooraugmentedrealitypedestriannavigation_Heliyon.pdf, page 12.",
+          "verdict": 1,
+          "reason": "The citation matches the source given in chunk 2."
+        },
+        {
+          "claim": "A high‑pass filter removes low‑frequency noise that turns into drift during integration of gyroscope data.",
+          "verdict": 1,
+          "reason": "Chunk 2 states that drift error can be eliminated through a high‑pass filter."
+        },
+        {
+          "claim": "The statement about the high‑pass filter is sourced from Indooraugmentedrealitypedestriannavigation_Heliyon.pdf, page 12.",
+          "verdict": 1,
+          "reason": "The citation matches the source given in chunk 2."
+        },
+        {
+          "claim": "Marker‑based re‑localisation uses fiducial markers (e.g., QR codes) placed in the environment to reset the pose and correct accumulated drift.",
+          "verdict": 0,
+          "reason": "Chunk 3 mentions marker‑based techniques using QR codes for indoor navigation, but it does not explicitly state that they reset the pose or correct accumulated drift."
+        },
+        {
+          "claim": "The statement about marker‑based re‑localisation is sourced from UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf, page 12.",
+          "verdict": 1,
+          "reason": "The citation matches the source given in chunk 3."
+        },
+        {
+          "claim": "GPS‑based absolute positioning provides an external reference that limits drift in outdoor scenarios.",
+          "verdict": 0,
+          "reason": "Chunk 3 notes that outdoor studies used GPS exclusively, but it does not explicitly claim that GPS limits drift."
+        },
+        {
+          "claim": "The statement about GPS‑based absolute positioning is sourced from UseofAugementedrealityinhumanwayfinding_Zhiwen_Qiu.pdf, page 12.",
+          "verdict": 1,
+          "reason": "The citation matches the source given in chunk 3."
+        },
+        {
+          "claim": "These methods are the ones explicitly mentioned in the corpus for handling accumulated positioning drift.",
+          "verdict": 1,
+          "reason": "All four methods (complementary filter, high‑pass filter, marker‑based technique, GPS) are directly referenced in the provided chunks as approaches related to drift or positioning accuracy."
+        }
+      ],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 0,
+          "reason": "Describes observed drift in various VIO systems but does not present any method for correcting or handling accumulated positioning drift."
+        },
+        {
+          "index": 2,
+          "verdict": 1,
+          "reason": "Explains a complementary filter that fuses accelerometer, magnetometer, and gyroscope data to estimate orientation without drift, directly addressing drift mitigation."
+        },
+        {
+          "index": 3,
+          "verdict": 1,
+          "reason": "Mentions marker‑based techniques (e.g., QR codes) used for indoor localization, which serve as control points to correct accumulated drift."
+        },
+        {
+          "index": 4,
+          "verdict": 0,
+          "reason": "Provides performance evaluation of VIO systems and notes drift occurrences, but offers no technique for handling the drift."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "q13",
+      "type": "multi_hop",
+      "answerable": true,
+      "faithfulness": 0.0,
+      "answer_relevance": 0.0,
+      "context_precision": 0.75,
+      "refused": true,
+      "refusal_correct": false,
+      "claims": [
+        {
+          "claim": "I don’t have enough information in the provided context to compare how different papers use QR codes",
+          "verdict": 0,
+          "reason": "The context does not explicitly state that there is insufficient information to compare multiple papers; it only provides content from a single paper."
+        },
+        {
+          "claim": "Only one paper is cited in the provided context",
+          "verdict": 0,
+          "reason": "The context includes multiple citations (e.g., Soon, 2008; Gao et al., 2003), so the claim that only one paper is cited is not supported."
+        }
+      ],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 1,
+          "reason": "Describes the QR code map approach, detailing that each QR code is a surveyed control point and node in an indoor road network encoding ID, coordinates, floor, node type, and edges, which matches the reference answer's description of the first paper."
+        },
+        {
+          "index": 2,
+          "verdict": 1,
+          "reason": "Provides further specifics on the QR code node and edge content used in the QR code map system, reinforcing the role of QR codes as backbone elements for localization and path planning as in the reference answer."
+        },
+        {
+          "index": 3,
+          "verdict": 1,
+          "reason": "Continues to explain the indoor QR code map design, emphasizing QR codes as control points that encode position and edge information, supporting the same usage described for the first paper in the reference answer."
+        },
+        {
+          "index": 4,
+          "verdict": 0,
+          "reason": "Focuses on QR code detection, pose estimation, and technical implementation details without addressing how QR codes are used differently across the two papers; it does not contribute to the comparative answer."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "id": "q14",
+      "type": "negative",
+      "answerable": false,
+      "faithfulness": null,
+      "answer_relevance": 0.0,
+      "context_precision": 0.0,
+      "refused": true,
+      "refusal_correct": true,
+      "claims": [],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 0,
+          "reason": "The chunk discusses search strategy and citation counts for HoloLens but contains no information about its retail price."
+        },
+        {
+          "index": 2,
+          "verdict": 0,
+          "reason": "The chunk describes study usage of HoloLens and other AR devices, but provides no price data for the HoloLens headset."
+        },
+        {
+          "index": 3,
+          "verdict": 0,
+          "reason": "The chunk mentions HoloLens in the context of feature usage and technical description, without any retail price information."
+        },
+        {
+          "index": 4,
+          "verdict": 0,
+          "reason": "The chunk presents a price table for VIO sensors (ARKit, ARCore, T265, ZED2) and does not include a price for Microsoft HoloLens."
+        }
+      ],
+      "notes": [
+        "no factual claims to grade"
+      ]
+    },
+    {
+      "id": "q15",
+      "type": "negative",
+      "answerable": false,
+      "faithfulness": 1.0,
+      "answer_relevance": 1.0,
+      "context_precision": 0.75,
+      "refused": false,
+      "refusal_correct": false,
+      "claims": [
+        {
+          "claim": "The study reports that ARKit achieved a final drift error (FDE) of only 2.68 m while driving a car.",
+          "verdict": 1,
+          "reason": "Chunk 4 explicitly states that ARKit's final drift error (FDE) was only 2.68 m in high-speed driving conditions."
+        }
+      ],
+      "chunk_verdicts": [
+        {
+          "index": 1,
+          "verdict": 0,
+          "reason": "Chunk 1 only outlines the review's research questions and background; it does not mention the exclusion of driving scenarios or any information about AR navigation accuracy for drivers."
+        },
+        {
+          "index": 2,
+          "verdict": 1,
+          "reason": "Chunk 2 explicitly states that the systematic review does not address AR‑supported navigation while driving a automobile, directly supporting the reference answer's claim that such data are excluded."
+        },
+        {
+          "index": 3,
+          "verdict": 1,
+          "reason": "Chunk 3 notes that navigation while driving an automobile was excluded from the review, reinforcing that the corpus contains no AR navigation guidance accuracy for drivers."
+        },
+        {
+          "index": 4,
+          "verdict": 1,
+          "reason": "Chunk 4 provides VIO drift error measurements (e.g., 2.68 m) for ARKit during high‑speed driving, illustrating that the only vehicular data in the corpus pertain to visual‑inertial odometry drift, not to AR navigation guidance accuracy, which aligns with the reference answer."
+        }
+      ],
+      "notes": []
+    }
+  ]
+}
