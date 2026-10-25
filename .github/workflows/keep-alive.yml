@@ -1,0 +1,57 @@
+name: keep-alive
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  wake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install playwright
+      - run: python -m playwright install --with-deps chromium
+
+      - name: Visit app, wake it if asleep
+        env:
+          APP_URL: https://thesis-rag-assistant.streamlit.app
+        run: |
+          python - <<'PY'
+          import os, sys
+          from playwright.sync_api import sync_playwright
+
+          url = os.environ["APP_URL"]
+          SLEEP_MARK = "gone to sleep"
+          WAKE_TEXT = "get this app back up"
+
+          with sync_playwright() as p:
+              browser = p.chromium.launch()
+              page = browser.new_page()
+              page.goto(url, timeout=90_000, wait_until="domcontentloaded")
+              page.wait_for_timeout(8_000)
+
+              body = page.inner_text("body")
+              state = "awake"
+
+              if SLEEP_MARK in body.lower():
+                  state = "asleep"
+                  button = page.get_by_text(WAKE_TEXT, exact=False)
+                  if button.count():
+                      button.first.click()
+                      page.wait_for_timeout(90_000)
+                      body = page.inner_text("body")
+                      state = "asleep" if SLEEP_MARK in body.lower() else "woken"
+
+              browser.close()
+
+          print(f"{url} -> {state}")
+          sys.exit(1 if state == "asleep" else 0)
+          PY
