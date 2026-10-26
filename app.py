@@ -47,9 +47,8 @@ if question:
     with st.chat_message("assistant"):
         with st.spinner("Searching the papers..."):
             text, sources = answer(question, TOP_K)
-        cited = text + "\n\n**Sources:**\n" + "\n".join(
-            f"- {s['source']} (page {s['page']})" for s in sources
-        )
+        unique = dict.fromkeys((s["source"], s["page"]) for s in sources)
+        cited = text + "\n\n**Sources:**\n" + "\n".join(f"- {src} (page {page})" for src, page in unique)
         st.markdown(cited)
     st.session_state.messages.append({"role": "assistant", "content": cited})
     st.rerun()
