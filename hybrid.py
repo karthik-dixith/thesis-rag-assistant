@@ -86,7 +86,7 @@ def answer(query: str, k: int = rag.TOP_K) -> tuple[str, list[dict]]:
         temperature=TEMPERATURE,
         messages=[{"role": "user", "content": prompt}],
     )
-        text = rag.clean_citations(response.choices[0].message.content)
+    text = rag.clean_citations(response.choices[0].message.content)
     sources = [{"source": c.get("source"), "page": c.get("page")} for c in chunks]
     return text, sources
 
