@@ -42,6 +42,13 @@ Question: {query}
 
 Answer:"""
 
+_CITE = re.compile(r"\[[^\]]*?pages?\s*([\d\s,\u2013-]+?)\s*\]", re.IGNORECASE)
+
+
+def clean_citations(text):
+    text = (text or "").replace("\u3010", "[").replace("\u3011", "]")
+    text = _CITE.sub(r"[p. \1]", text)
+    return re.sub(r"\[\s*(\d+)\s*\]", r"[p. \1]", text)
 
 def answer(query, k =TOP_K):
     chunks = retrieve(query, k)
@@ -51,9 +58,7 @@ def answer(query, k =TOP_K):
         messages=[{"role": "user", "content": prompt}],
         temperature=0.2,
     )
-    text = response.choices[0].message.content or ""
-    text = text.replace("【", "[").replace("】", "]")
-    text = re.sub(r"\[\s*(\d+)\s*\]", r"[p. \1]", text)
+    text = clean_citations(response.choices[0].message.content)
     sources = [{"source": c["source"], "page": c["page"]} for c in chunks]
     return text, sources
 
