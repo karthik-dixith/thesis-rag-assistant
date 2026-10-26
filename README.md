@@ -4,9 +4,9 @@ A retrieval-augmented question-answering system over the research literature on 
 
 **Live demo:** https://thesis-rag-assistant.streamlit.app/
 
-![Thesis RAG Assistant demo](demo.png)
+![The assistant answering a question with page-level citations](demo.png)
 
-Built as a portfolio project alongside my M.Sc. thesis on AR-assisted indoor navigation. The public demo runs over the published, open-access papers that underpin that thesis, so the questions and answers stay in a domain I know well.
+Built as a portfolio project alongside my M.Eng. thesis on AR-assisted indoor navigation. The public demo runs over the published, open-access papers that underpin that thesis, so the questions and answers stay in a domain I know well.
 
 The pipeline is ordinary RAG. The part worth reading is the evaluation harness built to measure it, and what that measurement overturned.
 
