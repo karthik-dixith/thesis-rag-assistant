@@ -1,3 +1,4 @@
+import re
 import pickle
 from pathlib import Path
 
@@ -33,7 +34,7 @@ def build_prompt(query, chunks):
     return f"""Answer the question using only the context below. You may combine and compare
 information from different passages; an answer assembled from several passages
 is still grounded in the context. Only say you don't have that information if
-the context genuinely lacks what is needed. Cite the page numbers you used.
+the context genuinely lacks what is needed. Cite the page numbers you used in square brackets, like [p. 12].
 Context:
 {context}
 
@@ -50,7 +51,9 @@ def answer(query, k =TOP_K):
         messages=[{"role": "user", "content": prompt}],
         temperature=0.2,
     )
-    text = response.choices[0].message.content
+    text = response.choices[0].message.content or ""
+    text = text.replace("【", "[").replace("】", "]")
+    text = re.sub(r"\[\s*(\d+)\s*\]", r"[p. \1]", text)
     sources = [{"source": c["source"], "page": c["page"]} for c in chunks]
     return text, sources
 
