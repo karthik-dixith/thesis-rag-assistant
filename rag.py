@@ -34,7 +34,7 @@ def build_prompt(query, chunks):
     return f"""Answer the question using only the context below. You may combine and compare
 information from different passages; an answer assembled from several passages
 is still grounded in the context. Only say you don't have that information if
-the context genuinely lacks what is needed. Cite the page numbers you used in square brackets, like [p. 12].
+the context genuinely lacks what is needed. Cite the page number in round brackets, like (page 12). Never write the file name.
 Context:
 {context}
 
@@ -42,13 +42,13 @@ Question: {query}
 
 Answer:"""
 
-_CITE = re.compile(r"\[[^\]]*?pages?\s*([\d\s,\u2013-]+?)\s*\]", re.IGNORECASE)
+_CITE = re.compile(r"[\[(]\s*[^\])]*?pages?\s*(\d+(?:\s*[\u2013,-]\s*\d+)*)\s*[\])]", re.IGNORECASE)
 
 
 def clean_citations(text):
     text = (text or "").replace("\u3010", "[").replace("\u3011", "]")
-    text = _CITE.sub(r"[p. \1]", text)
-    return re.sub(r"\[\s*(\d+)\s*\]", r"[p. \1]", text)
+    text = _CITE.sub(r"(page \1)", text)
+    return re.sub(r"\[\s*p\.?\s*(\d+)\s*\]", r"(page \1)", text)
 
 def answer(query, k =TOP_K):
     chunks = retrieve(query, k)
